@@ -1,0 +1,23 @@
+<div class="loading-shade" *ngIf="isUpdating$ | async">
+  <mat-spinner *ngIf="isUpdating$ | async"></mat-spinner>
+</div>
+
+<mat-card class="form">
+
+  <mat-card-header>
+    <mat-card-title>Add new category</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <category-form
+      [category]="newCategory"
+      (categoryAdded)="addCategory($event)">
+    </category-form>
+  </mat-card-content>
+
+</mat-card>
+
+<category-list
+  [categories$]="expenseCategories$"
+  (categoryUpdated)="updateCategory($event)">
+</category-list>

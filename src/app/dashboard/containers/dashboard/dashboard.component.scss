@@ -1,0 +1,53 @@
+@import 'src/theme';
+
+$small-spacing: 10px;
+$large-spacing: 20px;
+
+@media screen and (min-width: 768px){
+  main {
+    padding: $large-spacing !important;
+  }
+  .grid {
+    margin-top: $large-spacing !important;
+  }
+}
+
+main {
+  padding: $small-spacing;
+  flex: 1 1 0;
+  overflow: auto;
+}
+
+.grid {
+  margin-top: $small-spacing;
+  display: flex;
+  flex-wrap: wrap;
+
+  & mat-card {
+    flex: 1;
+  }
+}
+
+@media screen and (max-width: 592px) {
+
+  .grid mat-card {
+    flex: 1 0 50%;
+  }
+
+  .budgets-card {
+    margin-right: 0;
+    margin-bottom: $small-spacing;
+  }
+}
+
+mat-card-title.mat-card-title {
+  font-size: 20px;
+}
+
+.mat-card-header {
+  margin: -4px 0 0 -8px !important;
+}
+
+mat-progress-spinner {
+  margin: 30px auto;
+}

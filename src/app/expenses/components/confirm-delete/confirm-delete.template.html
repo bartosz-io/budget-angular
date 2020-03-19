@@ -1,0 +1,7 @@
+<mat-action-list>
+  <button mat-list-item [disabled]="inProgress" (click)="confirm()">
+    {{confirmText}}
+  </button>
+
+  <button mat-list-item (click)="cancel()">Cancel</button>
+</mat-action-list>

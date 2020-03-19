@@ -1,0 +1,30 @@
+<div class="layout-menu">
+  <div class="menu">
+
+    <div class="progress-bar">
+      <mat-progress-bar mode="indeterminate" *ngIf="loadingRoute"></mat-progress-bar>
+    </div>
+
+    <button mat-button menuItem name="dashboard" routerLink="dashboard">
+      <mat-icon svgIcon="home"></mat-icon>
+      <div>Dashboard</div>
+    </button>
+    <button mat-button menuItem name="expenses" routerLink="expenses">
+      <mat-icon svgIcon="list"></mat-icon>
+      <div>Expenses</div>
+    </button>
+    <button mat-button menuItem name="settings" routerLink="settings">
+      <mat-icon svgIcon="settings"></mat-icon>
+      <div>Settings</div>
+    </button>
+  </div>
+</div>
+
+<div class="layout-content">
+  <mat-toolbar color="primary">
+    <span>{{userLogin}}</span>
+    <period-selector *ngIf="selected !== 'settings'"></period-selector>
+    <span class="right btn" (click)="logout()">Logout</span>
+  </mat-toolbar>
+  <router-outlet></router-outlet>
+</div>

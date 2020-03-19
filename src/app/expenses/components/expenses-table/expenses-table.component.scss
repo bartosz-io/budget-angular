@@ -1,0 +1,19 @@
+:host {
+  overflow-y: auto;
+}
+
+.pull-right {
+  flex-direction: row-reverse;
+}
+
+.pd-right-10 {
+  padding-right: 10px;
+}
+
+.actions {
+  .mat-icon-button {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+  }
+}

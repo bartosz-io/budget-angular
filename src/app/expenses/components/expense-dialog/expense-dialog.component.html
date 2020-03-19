@@ -1,0 +1,33 @@
+<h2>Add new expense</h2>
+
+<form [formGroup]="expenseForm">
+  <mat-form-field>
+    <input matInput [matDatepicker]="picker" placeholder="Date of expense" formControlName="datetime">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Couterparty" formControlName="counterparty">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Expense category</mat-label>
+    <mat-select formControlName="categoryId">
+      <mat-option *ngFor="let category of categories" [value]="category.id">
+        {{category.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Amount spent" formControlName="value">
+    <span matPrefix>$</span>
+  </mat-form-field>
+
+  <div class="controls">
+    <button mat-raised-button color="primary" [disabled]="!expenseForm.valid || inProgress" (click)="submit()">{{submitText}}</button>
+    <button mat-raised-button color="accent" (click)="cancel()">Cancel</button>
+  </div>
+
+</form>

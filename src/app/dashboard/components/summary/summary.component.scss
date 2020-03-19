@@ -1,0 +1,29 @@
+table {
+  margin: auto;
+}
+
+.summary {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.summary-table {
+  flex: 1 0;
+  & table {
+    width: 100%;
+    padding: 0 20px;
+  }
+}
+
+@media screen and (min-width : 768px) {
+  .summary-table table {
+    padding: 0 15%;
+  }
+}
+
+.value {
+  text-align: right;
+  font-weight: bold;
+  padding-left: 15px;
+  font-size: 18px;
+}

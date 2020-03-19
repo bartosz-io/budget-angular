@@ -1,0 +1,9 @@
+<div class="progress-wrapper">
+  <div class="money-left">left {{budget.left | currency:'USD'}}</div>
+  <div class="category-name">{{budget.category.name}}</div>
+  <div class="progress-bar-container">
+    <div class="money-spent">{{budget.currentExpenses | currency:'USD':'symbol':'1.0'}} / {{budget.maxExpenses | currency:'USD':'symbol':'1.0'}}</div>
+    <div class="progress-bar" [style.width]="budget.leftPercentage"></div>
+    <div class="today" [style.left]="today"></div>
+  </div>
+</div>
