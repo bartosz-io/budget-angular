@@ -11,7 +11,14 @@
 
       <mat-progress-spinner *ngIf="!budgetsLoaded" mode="indeterminate"></mat-progress-spinner>
 
-      <budget-progress *ngFor="let budget of budgets" [budget]="budget"></budget-progress>
+      <ng-container *ngIf="budgets?.length > 0; else no_budgets">
+        <budget-progress *ngFor="let budget of budgets" [budget]="budget"></budget-progress>
+      </ng-container>
+
+      <ng-template #no_budgets>
+        <div class="no-budgets">No budgets defined</div>
+      </ng-template>
+
     </mat-card>
   </div>
 </main>
