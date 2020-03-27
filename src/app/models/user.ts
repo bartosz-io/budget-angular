@@ -4,7 +4,8 @@ export class User {
   id?: string;
   accountId?: string;
   account?: Account;
-  login?: string;
+  email?: string;
   password?: string;
   role?: 'OWNER' | 'READER';
+  confirmed?: boolean;
 }

@@ -1,0 +1,21 @@
+<form [formGroup]="signupForm" (ngSubmit)="signup()">
+
+  <div class="header">Create your account</div>
+
+  <mat-form-field>
+    <input matInput type="email" id="signup_email" placeholder="Email" autocomplete="new-password" formControlName="email" required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput type="password" id="signup_password" placeholder="Password" autocomplete="new-password" formControlName="password" required>
+  </mat-form-field>
+
+  <div class="actions">
+    <button mat-flat-button color="accent" type="submit" [disabled]="!signupForm.valid">Sign up</button>
+    <div class="separator">
+      <span>OR</span>
+    </div>
+    <button mat-stroked-button routerLink="/login">Login</button>
+  </div>
+
+</form>

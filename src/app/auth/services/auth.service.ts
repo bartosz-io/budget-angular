@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { of, Observable } from 'rxjs';
-import { catchError, mapTo, tap } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 import { config } from '../../core/config';
 import { CacheService } from '../../core/cache.service';
@@ -16,6 +16,7 @@ export class AuthService {
 
   public readonly INITIAL_PATH = '/app/dashboard';
   public readonly LOGIN_PATH = '/login';
+  public readonly CONFIRM_PATH = '/confirm';
   private readonly JWT_TOKEN = 'JWT_TOKEN';
   private readonly REFRESH_TOKEN = 'REFRESH_TOKEN';
 
@@ -24,33 +25,29 @@ export class AuthService {
     private http: HttpClient,
     private cacheService: CacheService) {}
 
-  getUserLogin() {
+  getUserEmail() {
     const encodedPayload = this.getJwtToken().split('.')[1];
     const payload = window.atob(encodedPayload);
-    return JSON.parse(payload).login;
+    return JSON.parse(payload).email;
   }
 
-  login(user: User): Observable<boolean> {
+  signup(user: User): Observable<void> {
+    return this.http.post<any>(`${config.authUrl}/signup`, user);
+  }
+
+  confirm(email: string, code: string): Observable<void> {
+    return this.http.get<any>(`${config.authUrl}/confirm?email=${email}&code=${code}`);
+  }
+
+  login(user: User): Observable<void> {
     return this.http.post<any>(`${config.authUrl}/login`, user)
-      .pipe(
-        tap(tokens => this.doLoginUser(user.login, tokens)),
-        mapTo(true),
-        catchError(error => {
-          // a good place for a logger
-          throw error;
-        }));
+      .pipe(tap(tokens => this.doLoginUser(user.email, tokens)));
   }
 
   logout() {
     return this.http.post<any>(`${config.authUrl}/logout`, {
       'refreshToken': this.getRefreshToken()
-    }).pipe(
-      tap(() => this.doLogoutUser()),
-      mapTo(true),
-      catchError(error => {
-        alert(error.error);
-        return of(false);
-      }));
+    }).pipe(tap(() => this.doLogoutUser()));
   }
 
   isLoggedIn() {

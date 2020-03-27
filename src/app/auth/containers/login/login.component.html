@@ -1,9 +1,9 @@
-<div class="header center">Log In</div>
-
 <form [formGroup]="loginForm" (ngSubmit)="login()">
 
+  <div class="header">Login to your account</div>
+
   <mat-form-field>
-    <input matInput type="text" id="login" placeholder="Login" autocomplete="off" formControlName="login" required>
+    <input matInput type="email" id="email" placeholder="Email" autocomplete="off" formControlName="email" required>
   </mat-form-field>
 
   <mat-form-field>
@@ -11,7 +11,11 @@
   </mat-form-field>
 
   <div class="actions">
-    <button mat-raised-button color="primary" type="submit" [disabled]="!loginForm.valid">LOG IN</button>
+    <button mat-flat-button color="primary" type="submit" [disabled]="!loginForm.valid">Login</button>
+    <div class="separator">
+      <span>OR</span>
+    </div>
+    <button mat-stroked-button routerLink="/signup">Sign up</button>
   </div>
 
 </form>

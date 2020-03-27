@@ -20,7 +20,7 @@ registerLocaleData(localePl);
 @NgModule({
   imports: [
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(MockApi, { passThruUnknownUrl: true, delay: 1000 }),
+    // HttpClientInMemoryWebApiModule.forRoot(MockApi, { passThruUnknownUrl: true, delay: 1000 }),
     BrowserAnimationsModule,
     MatProgressBarModule,
     SharedModule,

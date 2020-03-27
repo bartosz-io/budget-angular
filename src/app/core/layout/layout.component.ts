@@ -19,7 +19,7 @@ export class LayoutComponent implements AfterViewInit, OnDestroy {
   private buttons: QueryList<MenuItemDirective>;
   private routerSub: Subscription;
   public loadingRoute = false;
-  public userLogin: string;
+  public userEmail: string;
   public selected: string;
 
   constructor(private cdr: ChangeDetectorRef, private location: Location, private authService: AuthService,
@@ -39,7 +39,7 @@ export class LayoutComponent implements AfterViewInit, OnDestroy {
         this.selectCurrentRoute();
       }
     });
-    this.userLogin = this.authService.getUserLogin();
+    this.userEmail = this.authService.getUserEmail();
   }
 
   private selectCurrentRoute() {

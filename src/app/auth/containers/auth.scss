@@ -1,0 +1,53 @@
+:host {
+  display: block;
+  margin-top: 30vh;
+  width: 100%;
+}
+
+form {
+  max-width: 300px;
+  margin: auto;
+
+  .header {
+    margin-bottom: 15px;
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+
+  mat-form-field {
+    width: 100%;
+  }
+
+  .actions {
+    button {
+      display: block;
+      margin: 15px 0;
+      width: 100%;
+    }
+
+    .separator {
+      text-align: center;
+      position: relative;
+
+      span {
+        background: white;
+        padding: 10px;
+      }
+
+      ::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        left: 0px;
+        top: calc(50% - 1px);
+        z-index: -1;
+        border-width: 1px;
+        border-style: solid;
+        border-color: rgb(229, 232, 237);
+        border-image: initial;
+      }
+    }
+  }
+
+
+}

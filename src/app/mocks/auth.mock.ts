@@ -4,14 +4,16 @@ export const users: User[] = [
   {
       id: '1',
       accountId: '1',
-      login: 'bartosz',
-      role: 'OWNER'
+      email: 'bartosz@app.com',
+      role: 'OWNER',
+      confirmed: true
   },
   {
       id: '2',
       accountId: '2',
-      login: 'john',
-      role: 'OWNER'
+      email: 'john@app.com',
+      role: 'OWNER',
+      confirmed: true
   }
 ];
 
