@@ -1,12 +1,11 @@
 import { Component, ViewChildren, QueryList, OnDestroy, AfterViewInit, ChangeDetectorRef } from '@angular/core';
 import { Router, NavigationEnd, NavigationStart, NavigationError, NavigationCancel, ActivationStart } from '@angular/router';
 import { Location } from '@angular/common';
-import { Subscription } from 'rxjs';
+import { Subscription, Observable } from 'rxjs';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MenuItemDirective } from './../menu-item.directive';
 import { AuthService } from '../../auth/services/auth.service';
-import { ExpenseDialogComponent } from '../../expenses/components/expense-dialog/expense-dialog-component';
 
 @Component({
   selector: 'layout',
@@ -19,7 +18,7 @@ export class LayoutComponent implements AfterViewInit, OnDestroy {
   private buttons: QueryList<MenuItemDirective>;
   private routerSub: Subscription;
   public loadingRoute = false;
-  public userEmail: string;
+  public userEmail$: Observable<string>;
   public selected: string;
 
   constructor(private cdr: ChangeDetectorRef, private location: Location, private authService: AuthService,
@@ -39,7 +38,7 @@ export class LayoutComponent implements AfterViewInit, OnDestroy {
         this.selectCurrentRoute();
       }
     });
-    this.userEmail = this.authService.getUserEmail();
+    this.userEmail$ = this.authService.getUserEmail$();
   }
 
   private selectCurrentRoute() {

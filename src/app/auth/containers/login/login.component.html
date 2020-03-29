@@ -1,4 +1,4 @@
-<form [formGroup]="loginForm" (ngSubmit)="login()">
+<form [formGroup]="loginForm">
 
   <div class="header">Login to your account</div>
 
@@ -11,11 +11,11 @@
   </mat-form-field>
 
   <div class="actions">
-    <button mat-flat-button color="primary" type="submit" [disabled]="!loginForm.valid">Login</button>
+    <button mat-flat-button color="primary" type="submit" (click)="login()" [disabled]="!loginForm.valid">Login</button>
     <div class="separator">
       <span>OR</span>
     </div>
-    <button mat-stroked-button routerLink="/signup">Sign up</button>
+    <button mat-stroked-button type="button" routerLink="/signup">Sign up</button>
   </div>
 
 </form>

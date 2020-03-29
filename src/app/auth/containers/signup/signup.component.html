@@ -1,4 +1,4 @@
-<form [formGroup]="signupForm" (ngSubmit)="signup()">
+<form [formGroup]="signupForm">
 
   <div class="header">Create your account</div>
 
@@ -11,7 +11,7 @@
   </mat-form-field>
 
   <div class="actions">
-    <button mat-flat-button color="accent" type="submit" [disabled]="!signupForm.valid">Sign up</button>
+    <button mat-flat-button color="accent" type="submit" (click)="signup()" [disabled]="!signupForm.valid">Sign up</button>
     <div class="separator">
       <span>OR</span>
     </div>

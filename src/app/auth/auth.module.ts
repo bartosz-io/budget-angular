@@ -8,9 +8,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 
 import { AuthRoutingModule } from './auth-routing.module';
+import { authStrategyProvider } from './services/auth.strategy';
+import { AuthInterceptor } from './auth.interceptor';
 import { LoginComponent } from './containers/login/login.component';
 import { SignupComponent } from './containers/signup/signup.component';
-import { TokenInterceptor } from './token.interceptor';
 import { ConfirmComponent } from './containers/confirm/confirm.component';
 
 @NgModule({
@@ -31,9 +32,10 @@ import { ConfirmComponent } from './containers/confirm/confirm.component';
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: TokenInterceptor,
+      useClass: AuthInterceptor,
       multi: true
-    }
+    },
+    authStrategyProvider
   ]
 })
 export class AuthModule { }
