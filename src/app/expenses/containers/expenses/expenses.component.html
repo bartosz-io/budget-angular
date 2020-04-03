@@ -19,7 +19,7 @@
   </expenses-table>
 
   <div class="add">
-    <button mat-fab color="primary" (click)="openExpenseDialog()">+</button>
+    <button mat-fab color="primary" (click)="openExpenseDialog()" *forRoles="['owner']">+</button>
   </div>
 
 </main>

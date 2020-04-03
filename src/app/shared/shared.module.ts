@@ -15,10 +15,13 @@ import { MatListModule } from '@angular/material/list';
 import { SnackBarComponent } from './components/snackbar/snackbar.component';
 import { PeriodSelectorComponent } from './components/period-selector/period-selector.component';
 import { ExpenseCategoryApi } from './api/expenseCategory.api';
+import { AuthModule } from '../auth/auth.module';
+import { ForRolesDirective } from '../auth/directives/for-roles.directive';
 
 @NgModule({
   imports: [
     CommonModule,
+    AuthModule,
     MatIconModule,
     MatToolbarModule,
     MatButtonModule,
@@ -37,6 +40,7 @@ import { ExpenseCategoryApi } from './api/expenseCategory.api';
   ],
   exports: [
     CommonModule,
+    ForRolesDirective,
     PeriodSelectorComponent,
     SnackBarComponent,
     MatIconModule,

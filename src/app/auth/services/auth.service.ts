@@ -49,6 +49,12 @@ export class AuthService {
     );
   }
 
+  getUserRole$(): Observable<string> {
+    return this.auth.getCurrentUser().pipe(
+      map(user => user.role)
+    );
+  }
+
   getUserEmail$(): Observable<string> {
     return this.auth.getCurrentUser().pipe(
       map(user => user.email)

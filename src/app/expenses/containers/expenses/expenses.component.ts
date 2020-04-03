@@ -3,12 +3,13 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { fromEvent, Subscription, of, Observable } from 'rxjs';
-import { debounceTime, map, distinctUntilChanged, tap, switchMap, catchError } from 'rxjs/operators';
+import { debounceTime, map, distinctUntilChanged, tap, switchMap, catchError, filter } from 'rxjs/operators';
 
 import { ExpenseDialogComponent, ExpenseDialogData, SubmitExpenseCallback } from '../../components/expense-dialog/expense-dialog-component';
 import { SnackBarComponent } from '../../../shared/components/snackbar/snackbar.component';
 import { ExpenseCategoriesService } from '../../services/expense-categories.service';
 import { ExpensesService } from '../../services/expenses.service';
+import { AuthService } from '../../../auth/services/auth.service';
 import { PeriodService } from '../../../shared/period.service';
 import { Expense } from '@models/expense';
 import { ExpenseCategory } from '@models/expenseCategory';
@@ -22,13 +23,14 @@ export class ExpensesComponent implements OnInit, AfterViewInit, OnDestroy {
 
   @ViewChild('filter', { static: true }) filter: ElementRef;
   dataSource = new MatTableDataSource();
-  displayedColumns = ['datetime', 'counterparty', 'category', 'value', 'actions'];
+  displayedColumns = ['datetime', 'counterparty', 'category', 'value'];
   keyupSubscription: Subscription;
   isLoading = true;
   expenseCategories: ExpenseCategory[];
   period = this.periodService.getCurrentPeriod();
 
   constructor(
+    private authService: AuthService,
     private periodService: PeriodService,
     private expensesService: ExpensesService,
     private expensesCategoryService: ExpenseCategoriesService,
@@ -37,6 +39,13 @@ export class ExpensesComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngOnInit() {
     this.loadTable$().subscribe();
+    this.authService.getUserRole$()
+      .pipe(filter(role => role === 'OWNER'))
+      .subscribe(() => this.adaptToOwnersRole());
+  }
+
+  adaptToOwnersRole() {
+    this.displayedColumns.push('actions');
     this.expensesCategoryService.getExpenseCategories().subscribe(categories => {
       this.expenseCategories = categories;
     });

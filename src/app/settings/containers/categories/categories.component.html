@@ -2,7 +2,7 @@
   <mat-spinner *ngIf="isUpdating$ | async"></mat-spinner>
 </div>
 
-<mat-card class="form">
+<mat-card class="form" *forRoles="['OWNER']">
 
   <mat-card-header>
     <mat-card-title>Add new category</mat-card-title>

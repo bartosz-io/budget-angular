@@ -18,7 +18,7 @@ export class CategoriesComponent {
   newCategory: ExpenseCategory = new ExpenseCategory();
   isUpdating$: Observable<boolean>;
 
-  @ViewChild(CategoryFormComponent, { static: true })
+  @ViewChild(CategoryFormComponent, { static: false })
   categoryForm: CategoryFormComponent;
 
   @ViewChild(CategoryListComponent, { static: true })
@@ -37,7 +37,7 @@ export class CategoriesComponent {
   }
 
   isAnyFormDirty() {
-    return this.categoryForm.isDirty() || this.categoryList.isAnyFormDirty();
+    return this.categoryForm?.isDirty() || this.categoryList.isAnyFormDirty();
   }
 
 }

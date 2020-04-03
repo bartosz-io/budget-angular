@@ -13,12 +13,17 @@ import { AuthInterceptor } from './auth.interceptor';
 import { LoginComponent } from './containers/login/login.component';
 import { SignupComponent } from './containers/signup/signup.component';
 import { ConfirmComponent } from './containers/confirm/confirm.component';
+import { ForRolesDirective } from './directives/for-roles.directive';
 
 @NgModule({
   declarations: [
     LoginComponent,
     SignupComponent,
-    ConfirmComponent
+    ConfirmComponent,
+    ForRolesDirective
+  ],
+  exports: [
+    ForRolesDirective
   ],
   imports: [
     CommonModule,

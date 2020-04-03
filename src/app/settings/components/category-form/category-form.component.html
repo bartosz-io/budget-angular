@@ -14,7 +14,7 @@
 
 </form>
 
-<div class="actions">
+<div class="actions" *forRoles="['OWNER']">
   <button mat-button color="primary" *ngIf="editMode">Delete</button>
   <button mat-button color="primary" (click)="addPattern()">Add pattern</button>
   <button mat-button color="primary" *ngIf="!editMode" [disabled]="categoryForm.invalid" (click)="addCategory()">Add</button>
