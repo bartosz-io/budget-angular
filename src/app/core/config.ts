@@ -3,8 +3,9 @@ interface Config {
   auth: 'session' | 'token';
 }
 
+// Session auth needs to use the same origin anyway
 export const config: Config = {
-  apiUrl: 'http://localhost:8080/api',
-  authUrl: 'http://localhost:8080/auth',
+  apiUrl: '/api',
+  authUrl: '/auth',
   auth: 'session'
 };

@@ -3,7 +3,7 @@ import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
 import localePl from '@angular/common/locales/pl';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule, HttpClientXsrfModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
@@ -20,6 +20,10 @@ registerLocaleData(localePl);
 @NgModule({
   imports: [
     HttpClientModule,
+    HttpClientXsrfModule.withOptions({
+      cookieName: 'XSRF-Token',
+      headerName: 'XSRF-Token',
+    }),
     // HttpClientInMemoryWebApiModule.forRoot(MockApi, { passThruUnknownUrl: true, delay: 1000 }),
     BrowserAnimationsModule,
     MatProgressBarModule,
@@ -39,6 +43,6 @@ registerLocaleData(localePl);
       multi: true
     }
   ],
-  exports: [ LayoutComponent ]
+  exports: [LayoutComponent]
 })
 export class CoreModule { }
