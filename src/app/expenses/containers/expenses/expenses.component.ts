@@ -103,9 +103,9 @@ export class ExpensesComponent implements OnInit, AfterViewInit, OnDestroy {
       .pipe(
         switchMap(() => this.loadTable$()),
         tap(() => this.showResultSnackbar('Success')),
-        catchError((error) => {
-          this.showResultSnackbar(error.msg ? error.msg : 'Unknown error');
-          return of(error);
+        catchError((errorResponse) => {
+          this.showResultSnackbar(errorResponse.error?.msg ?? 'Unknown error');
+          return of(errorResponse);
         })
       );
   }
