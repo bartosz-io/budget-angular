@@ -15,6 +15,7 @@ import { SignupComponent } from './containers/signup/signup.component';
 import { ConfirmComponent } from './containers/confirm/confirm.component';
 import { ForRolesDirective } from './directives/for-roles.directive';
 import { PasswordComponent } from './containers/password/password.component';
+import { RecoverComponent } from './containers/recover/recover.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { PasswordComponent } from './containers/password/password.component';
     SignupComponent,
     ConfirmComponent,
     ForRolesDirective,
-    PasswordComponent
+    PasswordComponent,
+    RecoverComponent
   ],
   exports: [
     ForRolesDirective

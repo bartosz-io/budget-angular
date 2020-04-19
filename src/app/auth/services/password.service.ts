@@ -16,4 +16,13 @@ export class PasswordService {
     return this.http.post<any>(`${config.authUrl}/setup`, { email, code, password });
   }
 
+  requestRecovery(email: string) {
+    return this.http.get<any>(`${config.authUrl}/recover?email=${email}`);
+  }
+
+  recover(email: string, code: string, password: string): Observable<void> {
+    // never send password over HTTP GET!
+    return this.http.post<any>(`${config.authUrl}/recover`,  { email, code, password });
+  }
+
 }

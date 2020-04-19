@@ -1,0 +1,17 @@
+<ng-container *ngIf="!isRequestSent; else requestSent">
+  <div class="header">Recover your password</div>
+
+  <form [formGroup]="recoveryForm">
+    <mat-form-field>
+      <input matInput type="email" id="recover_email" placeholder="Email" formControlName="email" required>
+    </mat-form-field>
+
+    <div>
+      <button mat-flat-button color="accent" type="submit" (click)="recover()" [disabled]="!recoveryForm.valid">Recover password</button>
+    </div>
+  </form>
+</ng-container>
+
+<ng-template #requestSent>
+  <div class="header">We sent you an email with recovery instructions.</div>
+</ng-template>

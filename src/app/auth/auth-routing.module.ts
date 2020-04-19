@@ -5,6 +5,7 @@ import { LoginComponent } from './containers/login/login.component';
 import { SignupComponent } from './containers/signup/signup.component';
 import { ConfirmComponent } from './containers/confirm/confirm.component';
 import { PasswordComponent } from './containers/password/password.component';
+import { RecoverComponent } from './containers/recover/recover.component';
 import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
@@ -22,6 +23,10 @@ const routes: Routes = [
   },
   {
     path: 'password', component: PasswordComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'recover', component: RecoverComponent,
     canActivate: [AuthGuard]
   }
 ];
