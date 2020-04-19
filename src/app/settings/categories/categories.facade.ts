@@ -2,40 +2,40 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
+import { ExpenseCategoryApi } from '../../shared/api/expenseCategory.api';
+import { CategoriesState } from './categories.state';
 import { ExpenseCategory } from '@models/expenseCategory';
-import { ExpenseCategoryApi } from '../shared/api/expenseCategory.api';
-import { SettingsState } from './settings.state';
 
 @Injectable()
-export class SettingsFacade {
+export class CategoriesFacade {
 
-  constructor(private expenseCategoryApi: ExpenseCategoryApi, private settingsState: SettingsState) { }
+  constructor(private expenseCategoryApi: ExpenseCategoryApi, private categoriesState: CategoriesState) { }
 
   isUpdating$(): Observable<boolean> {
-    return this.settingsState.isUpdating$();
+    return this.categoriesState.isUpdating$();
   }
 
   getExpenseCategories$(): Observable<ExpenseCategory[]> {
     // here we just pass the state without any projections
     // it may happen that it is necessary to combine two or more streams and expose to the components
-    return this.settingsState.getExpenseCategories$();
+    return this.categoriesState.getExpenseCategories$();
   }
 
   loadExpenseCategories() {
     return this.expenseCategoryApi.getExpenseCategories()
-      .pipe(tap(categories => this.settingsState.setExpenseCategories(categories)));
+      .pipe(tap(categories => this.categoriesState.setExpenseCategories(categories)));
   }
 
   // optimistic update
   // 1. update UI Model
   // 2. call API
   addExpenseCategory(category: ExpenseCategory) {
-    this.settingsState.addExpenseCategory(category);
+    this.categoriesState.addExpenseCategory(category);
     this.expenseCategoryApi.createExpenseCategory(category)
       .subscribe(
-        (addedCategoryWithId: ExpenseCategory) => this.settingsState.updateExpenseCategoryId(category, addedCategoryWithId),
+        (addedCategoryWithId: ExpenseCategory) => this.categoriesState.updateExpenseCategoryId(category, addedCategoryWithId),
         (error: any) => {
-          this.settingsState.removeExpenseCategory(category);
+          this.categoriesState.removeExpenseCategory(category);
           console.log(error);
         }
       );
@@ -45,12 +45,12 @@ export class SettingsFacade {
   // 1. call API
   // 2. update UI model
   updateExpenseCategory(category: ExpenseCategory) {
-    this.settingsState.setUpdating(true);
+    this.categoriesState.setUpdating(true);
     this.expenseCategoryApi.updateExpenseCategory(category)
       .subscribe(
-        () => this.settingsState.updateExpenseCategory(category),
+        () => this.categoriesState.updateExpenseCategory(category),
         (error) => console.log(error),
-        () => this.settingsState.setUpdating(false)
+        () => this.categoriesState.setUpdating(false)
       );
   }
 

@@ -11,6 +11,12 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { MatListModule } from '@angular/material/list';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatTableModule } from '@angular/material/table';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSelectModule } from '@angular/material/select';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 import { SnackBarComponent } from './components/snackbar/snackbar.component';
 import { PeriodSelectorComponent } from './components/period-selector/period-selector.component';
@@ -32,7 +38,13 @@ import { ForRolesDirective } from '../auth/directives/for-roles.directive';
     MatFormFieldModule,
     MatSnackBarModule,
     MatBottomSheetModule,
-    MatListModule
+    MatListModule,
+    MatExpansionModule,
+    MatTableModule,
+    MatDialogModule,
+    MatSelectModule,
+    MatTabsModule,
+    MatDatepickerModule
   ],
   declarations: [
     PeriodSelectorComponent,
@@ -53,7 +65,13 @@ import { ForRolesDirective } from '../auth/directives/for-roles.directive';
     MatFormFieldModule,
     MatSnackBarModule,
     MatBottomSheetModule,
-    MatListModule
+    MatListModule,
+    MatExpansionModule,
+    MatTableModule,
+    MatDialogModule,
+    MatSelectModule,
+    MatTabsModule,
+    MatDatepickerModule
   ],
   providers: [ExpenseCategoryApi],
   entryComponents: [SnackBarComponent]

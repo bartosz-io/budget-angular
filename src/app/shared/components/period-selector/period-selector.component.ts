@@ -1,7 +1,7 @@
 import { DomSanitizer } from '@angular/platform-browser';
 import { MatIconRegistry } from '@angular/material/icon';
 import { Component } from '@angular/core';
-import { PeriodService } from '../../period.service';
+import { PeriodService } from '../../services/period.service';
 
 @Component({
   selector: 'period-selector',
@@ -20,7 +20,5 @@ export class PeriodSelectorComponent {
     this.month = periodService.getCurrentPeriod().month;
     this.year = periodService.getCurrentPeriod().year;
   }
-
-
 
 }

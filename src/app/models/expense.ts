@@ -4,7 +4,7 @@ import { ExpenseCategory } from './expenseCategory';
 
 export class Expense {
   public category?: ExpenseCategory;
-  
+
   constructor(
     public id?: Id,
     public accountId: Id = '',

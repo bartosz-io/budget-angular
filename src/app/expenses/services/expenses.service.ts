@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { PeriodService } from '../../shared/period.service';
+import { PeriodService } from '../../shared/services/period.service';
 import { ExpenseApi } from '../api/expense.api';
 import { Period } from '@models/period';
 import { Expense } from '@models/expense';

@@ -1,9 +1,5 @@
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MatTableModule } from '@angular/material/table';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatSelectModule } from '@angular/material/select';
 
 import { ExpensesRoutingModule } from './expenses-routing.module';
 import { SharedModule } from './../shared/shared.module';
@@ -19,10 +15,6 @@ import { ExpenseDialogComponent } from './components/expense-dialog/expense-dial
     SharedModule,
     ReactiveFormsModule,
     ExpensesRoutingModule,
-    MatTableModule,
-    MatDialogModule,
-    MatDatepickerModule,
-    MatSelectModule
   ],
   declarations: [
     ExpensesComponent,

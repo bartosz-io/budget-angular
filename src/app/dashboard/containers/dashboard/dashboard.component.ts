@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription, Observable } from 'rxjs';
 
 import { DashboardService } from './../../dashboard.service';
-import { PeriodService } from '../../../shared/period.service';
+import { PeriodService } from '../../../shared/services/period.service';
 import { BudgetSummary } from '@models/budgetSummary';
 import { Budget } from '@models/budget';
 

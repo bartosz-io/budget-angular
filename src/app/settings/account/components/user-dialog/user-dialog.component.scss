@@ -1,0 +1,26 @@
+.mat-dialog-container {
+  border-radius: 0px
+}
+
+.mat-form-field {
+  width: 100%;
+}
+
+.controls {
+  display: flex;
+  position: fixed;
+  width: calc(100% - 40px);
+  padding: 0 20px;
+  bottom: 20px;
+  left: 0;
+
+  button {
+    &:nth-of-type(1) {
+      margin-right: 10px;
+    }
+    &:nth-of-type(2) {
+      margin-left: 10px;
+    }
+    flex-grow: 1;
+  }
+}

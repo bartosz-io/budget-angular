@@ -17,7 +17,7 @@ import { ExpenseCategory } from '@models/expenseCategory';
 export class ExpensesTableComponent {
 
   @Input()
-  dataSource: DataSource<Expense[]>;
+  dataSource: DataSource<Expense>;
 
   @Input()
   displayedColumns: string[];

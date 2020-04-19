@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+
 import { ExpenseCategory } from '@models/expenseCategory';
 
 @Injectable()
-export class SettingsState {
+export class CategoriesState {
 
   private updating$ = new BehaviorSubject<boolean>(false);
   private expenseCategories$ = new BehaviorSubject<ExpenseCategory[]>(null);

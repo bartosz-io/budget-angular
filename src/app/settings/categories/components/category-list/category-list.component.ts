@@ -1,6 +1,8 @@
-import { ExpenseCategory } from '@models/expenseCategory';
 import { Component, Input, ChangeDetectionStrategy, EventEmitter, Output, ViewChildren, QueryList } from '@angular/core';
 import { CategoryFormComponent } from '../category-form/category-form.component';
+
+import { ExpenseCategory } from '@models/expenseCategory';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'category-list',
@@ -11,7 +13,7 @@ import { CategoryFormComponent } from '../category-form/category-form.component'
 export class CategoryListComponent {
 
   @Input()
-  categories$: ExpenseCategory[];
+  categories$: Observable<ExpenseCategory[]>;
 
   @Output()
   categoryUpdated: EventEmitter<ExpenseCategory> = new EventEmitter();

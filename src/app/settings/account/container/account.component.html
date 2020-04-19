@@ -1,0 +1,58 @@
+<main>
+  <div class="loading-shade" *ngIf="isLoading">
+    <mat-spinner></mat-spinner>
+  </div>
+
+  <mat-card>
+    <h2>User profile</h2>
+
+    <div>{{ownEmail}}</div>
+  </mat-card>
+
+  <mat-card *forRoles="['owner']">
+    <h2>Account users</h2>
+
+    <mat-table [dataSource]="users">
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+      <ng-container matColumnDef="email">
+        <mat-header-cell *matHeaderCellDef class="wide">User email</mat-header-cell>
+        <mat-cell *matCellDef="let userView" class="wide"> {{userView.email}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="role">
+        <mat-header-cell *matHeaderCellDef>Role</mat-header-cell>
+        <mat-cell *matCellDef="let userView"> {{userView.role}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="confirmed">
+        <mat-header-cell *matHeaderCellDef>Confirmed</mat-header-cell>
+        <mat-cell *matCellDef="let userView"> {{userView.confirmed ? 'Yes' : 'No'}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef class="pull-right">Actions</mat-header-cell>
+        <mat-cell *matCellDef="let user" class="pull-right">
+          <button mat-icon-button color="primary" matTooltip="Delete" (click)="confirmDelete(user.id)"
+            [disabled]="user.email === ownEmail">
+            <mat-icon svgIcon="remove"></mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
+
+    </mat-table>
+
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="openUserDialog()">Add user</button>
+    </mat-card-actions>
+  </mat-card>
+
+  <mat-card>
+    <h2>Password recovery</h2>
+
+    <div>[TODO]</div>
+
+  </mat-card>
+</main>

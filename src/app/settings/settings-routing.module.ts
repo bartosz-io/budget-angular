@@ -1,21 +1,22 @@
-import { EditingGuard } from './guards/editing.guard';
-import { ExpenseCategoryResolver } from './resolvers/expenseCategory.resolver';
-import { SettingsComponent } from './containers/settings/settings.component';
-import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+
+import { SettingsComponent } from './settings.component';
+import { AccountComponent } from './account/container/account.component';
 
 const routes: Routes = [
-  { path: '',
+  {
+    path: '',
     component: SettingsComponent,
-    resolve: {
-      expenseCategories: ExpenseCategoryResolver
-    },
-    canDeactivate: [EditingGuard]
+    children: [
+      { path: 'account', component: AccountComponent },
+      { path: 'categories', loadChildren: () => import('./categories/categories.module').then(m => m.CategoriesModule) },
+    ],
   },
 ];
 
 @NgModule({
-    imports: [ RouterModule.forChild(routes) ],
-    exports: [ RouterModule ]
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
 })
 export class SettingsRoutingModule { }

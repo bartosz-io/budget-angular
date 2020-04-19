@@ -1,6 +1,7 @@
-import { ExpenseCategory } from '@models/expenseCategory';
 import { Component, OnInit, Input, ChangeDetectionStrategy, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, Validators, FormGroup, FormArray, FormControl } from '@angular/forms';
+
+import { ExpenseCategory } from '@models/expenseCategory';
 
 @Component({
   selector: 'category-form',

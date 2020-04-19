@@ -2,15 +2,15 @@ import { Component, ElementRef, ViewChild, AfterViewInit, OnDestroy, OnInit } fr
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { fromEvent, Subscription, of, Observable } from 'rxjs';
+import { fromEvent, Subscription, of } from 'rxjs';
 import { debounceTime, map, distinctUntilChanged, tap, switchMap, catchError, filter } from 'rxjs/operators';
 
 import { ExpenseDialogComponent, ExpenseDialogData, SubmitExpenseCallback } from '../../components/expense-dialog/expense-dialog-component';
-import { SnackBarComponent } from '../../../shared/components/snackbar/snackbar.component';
 import { ExpenseCategoriesService } from '../../services/expense-categories.service';
 import { ExpensesService } from '../../services/expenses.service';
 import { AuthService } from '../../../auth/services/auth.service';
-import { PeriodService } from '../../../shared/period.service';
+import { PeriodService } from '../../../shared/services/period.service';
+import { SnackBarComponent } from '../../../shared/components/snackbar/snackbar.component';
 import { Expense } from '@models/expense';
 import { ExpenseCategory } from '@models/expenseCategory';
 
@@ -35,7 +35,7 @@ export class ExpensesComponent implements OnInit, AfterViewInit, OnDestroy {
     private expensesService: ExpensesService,
     private expensesCategoryService: ExpenseCategoriesService,
     private dialog: MatDialog,
-    private snackBar: MatSnackBar) {}
+    private snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.loadTable$().subscribe();
@@ -91,7 +91,6 @@ export class ExpensesComponent implements OnInit, AfterViewInit, OnDestroy {
           this.isLoading = false;
           this.dataSource.data = data;
         }));
-
   }
 
   getLoadTableCallback$() {

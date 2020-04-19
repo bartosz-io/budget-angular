@@ -1,9 +1,10 @@
+import { Component, Input, ChangeDetectionStrategy, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs';
-import { SettingsFacade } from './../../settings.facade';
+
+import { CategoryFormComponent } from '../components/category-form/category-form.component';
+import { CategoryListComponent } from '../components/category-list/category-list.component';
+import { CategoriesFacade } from '../categories.facade';
 import { ExpenseCategory } from '@models/expenseCategory';
-import { Component, Input, ChangeDetectionStrategy, ViewChild, ViewChildren } from '@angular/core';
-import { CategoryFormComponent } from '../../components/category-form/category-form.component';
-import { CategoryListComponent } from '../../components/category-list/category-list.component';
 
 @Component({
   selector: 'categories',
@@ -13,9 +14,8 @@ import { CategoryListComponent } from '../../components/category-list/category-l
 })
 export class CategoriesComponent {
 
-  @Input()
-  expenseCategories$: ExpenseCategory[];
   newCategory: ExpenseCategory = new ExpenseCategory();
+  expenseCategories$: Observable<ExpenseCategory[]>;
   isUpdating$: Observable<boolean>;
 
   @ViewChild(CategoryFormComponent, { static: false })
@@ -24,16 +24,17 @@ export class CategoriesComponent {
   @ViewChild(CategoryListComponent, { static: true })
   categoryList: CategoryListComponent;
 
-  constructor(private settingsFacade: SettingsFacade) {
-    this.isUpdating$ = settingsFacade.isUpdating$();
+  constructor(private categoriesFacade: CategoriesFacade) {
+    this.isUpdating$ = categoriesFacade.isUpdating$();
+    this.expenseCategories$ = categoriesFacade.getExpenseCategories$();
   }
 
   addCategory(category: ExpenseCategory) {
-    this.settingsFacade.addExpenseCategory(category);
+    this.categoriesFacade.addExpenseCategory(category);
   }
 
   updateCategory(category: ExpenseCategory) {
-    this.settingsFacade.updateExpenseCategory(category);
+    this.categoriesFacade.updateExpenseCategory(category);
   }
 
   isAnyFormDirty() {
