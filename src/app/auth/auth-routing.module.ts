@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './containers/login/login.component';
 import { SignupComponent } from './containers/signup/signup.component';
 import { ConfirmComponent } from './containers/confirm/confirm.component';
+import { PasswordComponent } from './containers/password/password.component';
 import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
@@ -17,6 +18,10 @@ const routes: Routes = [
   },
   {
     path: 'confirm', component: ConfirmComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'password', component: PasswordComponent,
     canActivate: [AuthGuard]
   }
 ];

@@ -14,13 +14,15 @@ import { LoginComponent } from './containers/login/login.component';
 import { SignupComponent } from './containers/signup/signup.component';
 import { ConfirmComponent } from './containers/confirm/confirm.component';
 import { ForRolesDirective } from './directives/for-roles.directive';
+import { PasswordComponent } from './containers/password/password.component';
 
 @NgModule({
   declarations: [
     LoginComponent,
     SignupComponent,
     ConfirmComponent,
-    ForRolesDirective
+    ForRolesDirective,
+    PasswordComponent
   ],
   exports: [
     ForRolesDirective
