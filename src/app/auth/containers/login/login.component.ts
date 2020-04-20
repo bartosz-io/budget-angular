@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
         email: this.f.email.value,
         password: this.f.password.value
       }
-    ).subscribe(() => this.router.navigate([this.authService.INITIAL_PATH]));
+    ).subscribe((user) => this.router.navigate([this.authService.getInitialPathForRole(user.role)]));
   }
 
 }

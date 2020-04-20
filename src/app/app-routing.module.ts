@@ -16,6 +16,11 @@ const routes: Routes = [
       { path: 'expenses', loadChildren: () => import('./expenses/expenses.module').then(m => m.ExpensesModule) },
       { path: 'settings', loadChildren: () => import('./settings/settings.module').then(m => m.SettingsModule) }
     ]
+  },
+  {
+    path: 'admin',
+    canActivate: [], // how would you implement it? 🧐
+    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
   }
 ];
 

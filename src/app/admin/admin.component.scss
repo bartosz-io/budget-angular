@@ -1,0 +1,35 @@
+@import './../../theme';
+
+:host {
+  background-color: $background-color;
+  display: block;
+  height: 100vh;
+}
+
+mat-toolbar {
+  position: relative;
+
+  span {
+    position: absolute;
+
+    &.right {
+      right: 16px;
+    }
+
+    &.btn {
+      border: 2px solid white;
+      padding: 2px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+
+      &:hover {
+        color: $primary-color;
+        background-color: white;
+      }
+    }
+  }
+}
+
+mat-card {
+  margin: 10px;
+}

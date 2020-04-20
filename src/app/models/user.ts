@@ -1,4 +1,5 @@
 import { Account } from './account';
+import { Role } from './types';
 
 export class User {
   id?: string;
@@ -6,6 +7,6 @@ export class User {
   account?: Account;
   email?: string;
   password?: string;
-  role?: 'OWNER' | 'READER';
+  role?: Role;
   confirmed?: boolean;
 }
