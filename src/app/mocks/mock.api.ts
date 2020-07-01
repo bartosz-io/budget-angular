@@ -10,6 +10,7 @@ export class MockApi implements InMemoryDbService {
 
   createDb() {
     return {
+      users: [],
       budgets, expenses,
       'budget-summary': budgetSummary,
       'budget-definition': budgetDefinition,
@@ -17,12 +18,19 @@ export class MockApi implements InMemoryDbService {
     };
   }
 
+  get(info: RequestInfo, db: {}) {
+    switch (this.findUrlSegmentForPost(info.req.url)) {
+      case '/logout':
+        return this.handleLogout(info);
+      default:
+        return undefined;
+    }
+  }
+
   post(info: RequestInfo, db: {}) {
     switch (this.findUrlSegmentForPost(info.req.url)) {
       case '/login':
-        return this.handleLoginPost(info);
-      case '/logout':
-        return this.handleLogoutPost(info);
+        return this.handleLogin(info);
       case '/expenses':
         return this.interceptExpensesRequest(info);
       default:
@@ -66,9 +74,9 @@ export class MockApi implements InMemoryDbService {
     return segmentMatcher ? segmentMatcher[1] : null;
   }
 
-  private handleLoginPost(info: RequestInfo) {
+  private handleLogin(info: RequestInfo) {
     const body = info.utils.getJsonBody(info.req);
-    const token = tokens[body.login];
+    const token = tokens[body.email];
     const response = token ?
       {
         body: { jwt: token },
@@ -84,7 +92,7 @@ export class MockApi implements InMemoryDbService {
     return info.utils.createResponse$(() => response);
   }
 
-  private handleLogoutPost(info: RequestInfo) {
+  private handleLogout(info: RequestInfo) {
     const response = {
       status: STATUS.OK
     };
