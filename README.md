@@ -7,7 +7,7 @@ This is the final project in the training program [Angular Enterprise Security A
 | Auth | Dashboard | Expenses | Settings | Admin |
 | ------ |  ------ | ------ | ----- | ----- |
 | Login, signup and recover password | Read budgets and account summary | List and manage the expenses belonging to the account | Manage account users and expense categories for account | Manage active sessions of logged users |
-| screen | screen | screen | screen | screen |
+| ![Login](/docs/login.png) | ![Dashboard](/docs/dashboard.png) | ![Expenses](/docs/expenses.png) | ![Settings](/docs/settings.png) | ![Admin](/docs/admin.png) |
 
 ## Roles in the system
 
@@ -19,10 +19,12 @@ This is the final project in the training program [Angular Enterprise Security A
 
 ## Domain model
 
-Each user **belongs to** one account. Each account **may have** multiple users.
-Each expense **belongs to** one account. Each account **may have** multiple expenses.
+- Each user **belongs to** one account.
+- Each account **may have** multiple users.
+- Each expense **belongs to** one account.
+- Each account **may have** multiple expenses.
 
-screen
+![Domain](/docs/domain%20model.png)
 
 ## Authentication mechanisms
 
@@ -132,7 +134,9 @@ Particular components are visible to the users with specified roles. For example
 <button mat-fab color="primary" (click)="openExpenseDialog()" *forRoles="['owner']">+</button>
 ```
 
-screen
+<img src="/docs/reader expenses.png" width="300">
+
+Directive implementation:
 
 ```ts
 import { Directive, Input, ViewContainerRef, TemplateRef } from '@angular/core';
