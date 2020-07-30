@@ -2,6 +2,24 @@
 
 This is the final project in the training program [Angular Enterprise Security Academy](https://angular-academy.com/security). It represents a real-life use case of personal money tracker. There are five main feature modules: *Auth*, *Dashboard*, *Expenses*, *Settings* and *Admin* with many security measures implemented described below. The project implements [role-based access control](https://en.wikipedia.org/wiki/Role-based_access_control) (RBAC), giving different users different permissions. This is the frontend part to the accompanying [backend api](https://github.com/bartosz-io/budget-node) in Node.js with TypeScript. A deployed version (with mocked in-memory API) is available under https://budget.angular-academy.com.
 
+## Installation
+
+```bash
+npm install
+ng serve
+```
+
+## Running
+
+There are two ways you can run the Angular part:
+
+1) As a standalone Angular application with `ng serve`
+2) From node project with `ng build --watch`
+    - Angular distribution will be avaiable in `dist/`
+    - Angular and Node application must reside in the some folder
+    - Angular application must reside in `angular` filder
+    - Node application will look for Angular build in `/angular/dist/` thanks to `app.use(express.static('../angular/dist/'));`
+
 ## Main modules
 
 | Auth | Dashboard | Expenses | Settings | Admin |
@@ -46,24 +64,6 @@ export const config: Config = {
   auth: 'token' // type-safe
 };
 ```
-
-## Installation
-
-```bash
-npm install
-ng serve
-```
-
-## Running
-
-There are two ways you can run the Angular part:
-
-1) as a standalone Angular application with `ng serve`
-2) from node project with `ng build --watch`
-    - Angular distribution will be avaiable in `dist/`
-    - Angular and Node application must reside in the some folder
-    - Angular application must reside in `angular` filder
-    - Node application will look for Angular build in `/angular/dist/` thanks to `app.use(express.static('../angular/dist/'));`
 
 ## Mocked API
 
