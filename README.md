@@ -180,4 +180,4 @@ export class ForRolesDirective {
 
 ## License
 
-MIT
+GPL-3.0
