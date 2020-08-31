@@ -2,12 +2,30 @@
 
 This is the final project in the training program [Angular Enterprise Security Academy](https://angular-academy.com/security). It represents a real-life use case of personal money tracker. There are five main feature modules: *Auth*, *Dashboard*, *Expenses*, *Settings* and *Admin* with many security measures implemented described below. The project implements [role-based access control](https://en.wikipedia.org/wiki/Role-based_access_control) (RBAC), giving different users different permissions. This is the frontend part to the accompanying [backend api](https://github.com/bartosz-io/budget-node) in Node.js with TypeScript. A deployed version (with mocked in-memory API) is available under https://budget.angular-academy.com.
 
+## Installation
+
+```bash
+npm install
+ng serve
+```
+
+## Running
+
+There are two ways you can run the Angular part:
+
+1) As a standalone Angular application with `ng serve`
+2) From node project with `ng build --watch`
+    - Angular distribution will be avaiable in `dist/`
+    - Angular and Node application must reside in the some folder
+    - Angular application must reside in `angular` filder
+    - Node application will look for Angular build in `/angular/dist/` thanks to `app.use(express.static('../angular/dist/'));`
+
 ## Main modules
 
 | Auth | Dashboard | Expenses | Settings | Admin |
 | ------ |  ------ | ------ | ----- | ----- |
 | Login, signup and recover password | Read budgets and account summary | List and manage the expenses belonging to the account | Manage account users and expense categories for account | Manage active sessions of logged users |
-| screen | screen | screen | screen | screen |
+| ![Login](/docs/login.png) | ![Dashboard](/docs/dashboard.png) | ![Expenses](/docs/expenses.png) | ![Settings](/docs/settings.png) | ![Admin](/docs/admin.png) |
 
 ## Roles in the system
 
@@ -19,10 +37,12 @@ This is the final project in the training program [Angular Enterprise Security A
 
 ## Domain model
 
-Each user **belongs to** one account. Each account **may have** multiple users.
-Each expense **belongs to** one account. Each account **may have** multiple expenses.
+- Each user **belongs to** one account.
+- Each account **may have** multiple users.
+- Each expense **belongs to** one account.
+- Each account **may have** multiple expenses.
 
-screen
+![Domain](/docs/domain%20model.png)
 
 ## Authentication mechanisms
 
@@ -44,24 +64,6 @@ export const config: Config = {
   auth: 'token' // type-safe
 };
 ```
-
-## Installation
-
-```bash
-npm install
-ng serve
-```
-
-## Running
-
-There are two ways you can run the Angular part:
-
-1) as a standalone Angular application with `ng serve`
-2) from node project with `ng build --watch`
-    - Angular distribution will be avaiable in `dist/`
-    - Angular and Node application must reside in the some folder
-    - Angular application must reside in `angular` filder
-    - Node application will look for Angular build in `/angular/dist/` thanks to `app.use(express.static('../angular/dist/'));`
 
 ## Mocked API
 
@@ -132,7 +134,9 @@ Particular components are visible to the users with specified roles. For example
 <button mat-fab color="primary" (click)="openExpenseDialog()" *forRoles="['owner']">+</button>
 ```
 
-screen
+<img src="/docs/reader expenses.png" width="300">
+
+Directive implementation:
 
 ```ts
 import { Directive, Input, ViewContainerRef, TemplateRef } from '@angular/core';
