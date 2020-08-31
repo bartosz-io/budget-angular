@@ -19,6 +19,15 @@ form {
   }
 
   .actions {
+    a {
+      text-decoration: none;
+      color: white;
+
+      &.github button {
+        background-color: rgb(0, 97, 235);
+      }
+    }
+
     button {
       display: block;
       margin: 15px 0;

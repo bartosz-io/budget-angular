@@ -15,6 +15,9 @@
     <div class="separator">
       <span>OR</span>
     </div>
+    <a href="/api/auth/external/github/signup" class="github">
+      <button mat-stroked-button type="button" (click)="githubSignup = 'Please wait... ⌛'">{{githubSignup}}</button>
+    </a>
     <button mat-stroked-button routerLink="/login">Login</button>
   </div>
 

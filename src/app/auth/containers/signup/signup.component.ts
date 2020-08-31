@@ -11,6 +11,7 @@ import { AuthService } from '../../services/auth.service';
 export class SignupComponent implements OnInit {
 
   signupForm: FormGroup;
+  githubSignup = 'Signup with GitHub';
 
   constructor(private authService: AuthService,
     private formBuilder: FormBuilder,
