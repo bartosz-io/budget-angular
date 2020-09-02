@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
   githubLogin = 'Login with GitHub';
+  googleLogin = 'Login with Google';
 
   constructor(private authService: AuthService,
     private formBuilder: FormBuilder,

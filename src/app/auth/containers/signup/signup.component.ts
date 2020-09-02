@@ -12,6 +12,7 @@ export class SignupComponent implements OnInit {
 
   signupForm: FormGroup;
   githubSignup = 'Signup with GitHub';
+  googleSignup = 'Signup with Google';
 
   constructor(private authService: AuthService,
     private formBuilder: FormBuilder,
