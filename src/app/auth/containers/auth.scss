@@ -36,6 +36,10 @@ form {
       display: block;
       margin: 15px 0;
       width: 100%;
+
+      &.google-id {
+        background-color: rgba(216, 72, 48, 0.2);
+      }
     }
 
     .separator {
