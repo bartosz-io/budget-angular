@@ -16,6 +16,7 @@ import { ConfirmComponent } from './containers/confirm/confirm.component';
 import { ForRolesDirective } from './directives/for-roles.directive';
 import { PasswordComponent } from './containers/password/password.component';
 import { RecoverComponent } from './containers/recover/recover.component';
+import { OAuthComponent } from './containers/oauth/oauth.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { RecoverComponent } from './containers/recover/recover.component';
     ConfirmComponent,
     ForRolesDirective,
     PasswordComponent,
-    RecoverComponent
+    RecoverComponent,
+    OAuthComponent
   ],
   exports: [
     ForRolesDirective

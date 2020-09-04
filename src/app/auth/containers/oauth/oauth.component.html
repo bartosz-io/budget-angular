@@ -1,0 +1,20 @@
+<p>
+  <a routerLink='/login'>Back to login page</a>
+</p>
+
+<h1>ID Token contents</h1>
+<pre>{{ user | json }}</pre>
+
+<h2>State:
+  <span [style.color] = "stateIsValid ? 'green' : 'red'">
+    {{ stateIsValid ? 'match' : 'no match'}}
+  </span>
+</h2>
+
+<h2>Nonce:
+  <span [style.color] = "nonceIsValid ? 'green' : 'red'">
+    {{ nonceIsValid ? 'match' : 'no match'}}
+  </span>
+</h2>
+
+<p>Remember to validate token's <b>authenticity</b> and <b>integrity</b> when using to authenticate requests to the backend!</p>
