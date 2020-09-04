@@ -5,6 +5,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { SnackBarComponent } from './../../../shared/components/snackbar/snackbar.component';
 import { AuthService } from '../../services/auth.service';
+import { OAuthService } from './../../services/oauth.service';
 
 @Component({
   selector: 'app-login',
@@ -18,6 +19,7 @@ export class LoginComponent implements OnInit {
   googleLogin = 'Login with Google';
 
   constructor(private authService: AuthService,
+    private oauthService: OAuthService,
     private formBuilder: FormBuilder,
     private snackBar: MatSnackBar,
     private route: ActivatedRoute,
@@ -47,6 +49,10 @@ export class LoginComponent implements OnInit {
         password: this.f.password.value
       }
     ).subscribe((user) => this.router.navigate([this.authService.getInitialPathForRole(user.role)]));
+  }
+
+  getIdToken() {
+    this.oauthService.requestIdToken();
   }
 
 }
