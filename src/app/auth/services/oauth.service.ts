@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { googleClientId } from './../../core/secret';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,6 @@ export class OAuthService {
   readonly authorizeUrl = 'https://accounts.google.com/o/oauth2/v2/auth';
   readonly accessTokenUrl = 'https://oauth2.googleapis.com/token';
   readonly userInfoUrl = 'https://openidconnect.googleapis.com/v1/userinfo';
-  readonly clientID = '<place `clientId` here>';
   readonly redirectUri = 'http://localhost:4200/oauth';
   readonly responseType = 'id_token';
   readonly scope = 'openid email profile';
@@ -23,7 +23,7 @@ export class OAuthService {
     const nonce = this.generateRandomString(this.NONCE_LENGTH);
 
     const url = `${this.authorizeUrl}` +
-      `?client_id=${this.clientID}` +
+      `?client_id=${googleClientId}` +
       `&redirect_uri=${this.redirectUri}` +
       `&response_type=${this.responseType}` +
       `&scope=${this.scope}` +
