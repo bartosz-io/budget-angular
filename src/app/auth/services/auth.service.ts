@@ -1,8 +1,8 @@
 import { Injectable, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
-import { tap, map } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
+import { tap, map, catchError } from 'rxjs/operators';
 
 import { config } from '../../core/config';
 import { CacheService } from '../../core/cache.service';
@@ -51,7 +51,8 @@ export class AuthService {
 
   isLoggedIn$(): Observable<boolean> {
     return this.auth.getCurrentUser().pipe(
-      map(user => !!user)
+      map(user => !!user),
+      catchError(() => of(false))
     );
   }
 
