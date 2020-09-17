@@ -9,4 +9,5 @@ export class User {
   password?: string;
   role?: Role;
   confirmed?: boolean;
+  tfa?: boolean;
 }
