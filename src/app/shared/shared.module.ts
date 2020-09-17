@@ -17,6 +17,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 import { SnackBarComponent } from './components/snackbar/snackbar.component';
 import { PeriodSelectorComponent } from './components/period-selector/period-selector.component';
@@ -44,7 +45,8 @@ import { ForRolesDirective } from '../auth/directives/for-roles.directive';
     MatDialogModule,
     MatSelectModule,
     MatTabsModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatSlideToggleModule
   ],
   declarations: [
     PeriodSelectorComponent,
@@ -71,7 +73,8 @@ import { ForRolesDirective } from '../auth/directives/for-roles.directive';
     MatDialogModule,
     MatSelectModule,
     MatTabsModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatSlideToggleModule
   ],
   providers: [ExpenseCategoryApi],
   entryComponents: [SnackBarComponent]
