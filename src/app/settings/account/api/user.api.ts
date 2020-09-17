@@ -20,6 +20,10 @@ export class UserApi {
     return this.http.post<void>(this.API_URL, user);
   }
 
+  patchUser(id: string, data: any): Observable<void> {
+    return this.http.patch<void>(`${this.API_URL}/${id}`, data);
+  }
+
   deleteUser(id: string): Observable<void> {
     return this.http.delete<void>(`${this.API_URL}/${id}`);
   }
