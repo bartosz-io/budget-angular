@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
@@ -8,6 +9,7 @@ import { map, switchMap, catchError, tap, filter } from 'rxjs/operators';
 import { AuthService } from '../../../auth/services/auth.service';
 import { AccountService } from '../account.service';
 import { UserDialogComponent } from '../components/user-dialog/user-dialog-component';
+import { SecretDialogComponent } from '../components/secret-dialog/secret-dialog.component';
 import { SnackBarComponent } from '../../../shared/components/snackbar/snackbar.component';
 import { User } from '@models/user';
 
@@ -18,10 +20,12 @@ import { User } from '@models/user';
 })
 export class AccountComponent implements OnInit {
 
+  tfaEnabled = false;
   ownEmail: string;
   isLoading = false;
   users = new MatTableDataSource<User>();
   displayedColumns = ['email', 'role', 'confirmed', 'actions'];
+  showSecretLabel = 'Show secret code';
 
   constructor(
     private dialog: MatDialog,
@@ -30,7 +34,10 @@ export class AccountComponent implements OnInit {
     private accountService: AccountService) { }
 
   ngOnInit(): void {
-    this.authService.getUserEmail$().subscribe(email => this.ownEmail = email);
+    this.authService.getCurrentUser$().subscribe(user => {
+      this.ownEmail = user.email;
+      this.tfaEnabled = user.tfa;
+    });
     this.authService.getUserRole$()
       .pipe(
         filter(role => role === 'OWNER'),
@@ -47,6 +54,32 @@ export class AccountComponent implements OnInit {
       maxHeight: '100vh',
       height: '100%',
       width: '100%'
+    });
+  }
+
+  updateTfa(change: MatSlideToggleChange) {
+    const isEnabled = change.checked;
+    this.isLoading = true;
+    this.authService.getCurrentUser$()
+      .pipe(
+        switchMap(user => this.accountService.toggleTfa(user.id, isEnabled)),
+        tap(() => this.isLoading = false),
+        catchError((errorResponse) => {
+          this.isLoading = false;
+          this.tfaEnabled = !isEnabled; // rollback the change on UI
+          this.showResultSnackbar(errorResponse.error?.msg ?? 'Unknown error');
+          return throwError(errorResponse);
+        }))
+      .subscribe(() => this.showResultSnackbar(`Two-factor authentication ${isEnabled ? 'enabled' : 'disabled'}`));
+  }
+
+  showSecretCode() {
+    this.showSecretLabel = 'Please wait...';
+    this.accountService.getSecret().subscribe(result => {
+      this.dialog.open<SecretDialogComponent>(SecretDialogComponent, {
+        data: result.keyuri
+      });
+      this.showSecretLabel = 'Show secret code';
     });
   }
 

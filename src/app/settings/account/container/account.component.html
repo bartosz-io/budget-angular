@@ -9,6 +9,13 @@
     <div>{{ownEmail}}</div>
   </mat-card>
 
+  <mat-card>
+    <h2>Two-factor authentication</h2>
+
+    <mat-slide-toggle [(ngModel)]="tfaEnabled" (change)="updateTfa($event)" [disabled]='isLoading'>{{ tfaEnabled ? 'Enabled' : 'Disabled' }}</mat-slide-toggle>
+    <button mat-button color="primary" (click)="showSecretCode()">{{ showSecretLabel }}</button>
+  </mat-card>
+
   <mat-card *forRoles="['owner']">
     <h2>Account users</h2>
 
