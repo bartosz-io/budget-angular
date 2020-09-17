@@ -14,16 +14,25 @@ export class HttpErrorInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(request).pipe(
       catchError((error: HttpErrorResponse) => {
-        // when Node backend is not running, then logged user query fails; let's not show error
-        if (!this.isQueryForLoggedUser(error)) {
+        if (!this.isErrorMessageSuppressed(error)) {
           this.showErrorMessage(error);
         }
         return throwError(error);
       }));
   }
 
+  private isErrorMessageSuppressed (error: HttpErrorResponse) {
+    return this.isQueryForLoggedUser(error) ||
+      this.isOtpRequired(error);
+  }
+
+  // when Node backend is not running, then logged user query fails; let's not show the error
   private isQueryForLoggedUser(error: HttpErrorResponse) {
     return error.url.endsWith(`${config.authUrl}/user`);
+  }
+
+  private isOtpRequired(error: HttpErrorResponse) {
+    return error.error.msg === 'OTP_REQUIRED';
   }
 
   private showErrorMessage(error: HttpErrorResponse) {
