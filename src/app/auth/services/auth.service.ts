@@ -57,6 +57,10 @@ export class AuthService {
     );
   }
 
+  getCurrentUser$(): Observable<User> {
+    return this.auth.getCurrentUser();
+  }
+
   getUserRole$(): Observable<string> {
     return this.auth.getCurrentUser().pipe(
       map(user => user.role)
