@@ -7,6 +7,7 @@ import { tap, map, catchError } from 'rxjs/operators';
 import { config } from '../../core/config';
 import { CacheService } from '../../core/cache.service';
 import { AuthStrategy, AUTH_STRATEGY } from './auth.strategy';
+import { LoginRequest } from '@models/loginRequest';
 import { User } from '@models/user';
 import { Role } from '@models/types';
 
@@ -39,8 +40,8 @@ export class AuthService {
     return this.http.get<any>(`${config.authUrl}/confirm?email=${email}&code=${code}`);
   }
 
-  login(user: User): Observable<User> {
-    return this.http.post<any>(`${config.authUrl}/login`, user)
+  login(loginRequest: LoginRequest): Observable<User> {
+    return this.http.post<any>(`${config.authUrl}/login`, loginRequest)
       .pipe(tap(data => this.auth.doLoginUser(data)));
   }
 
