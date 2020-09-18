@@ -21,6 +21,9 @@
     <a href="/api/auth/external/google/login" class="google">
       <button mat-stroked-button type="button" (click)="googleLogin = 'Please wait... ⌛'">{{googleLogin}}</button>
     </a>
+    <a href="/api/auth/external/facebook/login" class="facebook">
+      <button mat-stroked-button type="button" (click)="facebookLogin = 'Please wait... ⌛'">{{facebookLogin}}</button>
+    </a>
     <button mat-stroked-button type="button" class="google-id" (click)="getIdToken()">Get Identity from Google (Implicit Flow)</button>
     <button mat-stroked-button type="button" routerLink="/signup">Sign up</button>
     <button mat-stroked-button type="button" routerLink="/recover">Recover password</button>

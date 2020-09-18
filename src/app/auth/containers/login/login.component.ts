@@ -23,6 +23,7 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   githubLogin = 'Login with GitHub';
   googleLogin = 'Login with Google';
+  facebookLogin = 'Login with Facebook';
 
   constructor(private authService: AuthService,
     private oauthService: OAuthService,
