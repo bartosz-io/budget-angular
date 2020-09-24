@@ -73,7 +73,7 @@ export class AuthService {
     );
   }
 
-  logoutAndRedirectToLogin() {
+  doLogoutAndRedirectToLogin() {
     this.doLogoutUser();
     this.router.navigate(['/login']);
   }
