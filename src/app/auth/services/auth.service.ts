@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { tap, map, catchError } from 'rxjs/operators';
 
-import { config } from '../../core/config';
+import { config, auth0 } from '../../core/config';
 import { CacheService } from '../../core/cache.service';
 import { AuthStrategy, AUTH_STRATEGY } from './auth.strategy';
 import { LoginRequest } from '@models/loginRequest';
@@ -76,6 +76,16 @@ export class AuthService {
   doLogoutAndRedirectToLogin() {
     this.doLogoutUser();
     this.router.navigate(['/login']);
+  }
+
+  logoutAuth0() {
+    return this.logout().subscribe(() => {
+      window.location.href = `${auth0.url}/logout?client_id=${auth0.clientId}&returnTo=${auth0.returnUrl}`;
+    });
+  }
+
+  isAuth0User(user: User): boolean {
+    return user.id.startsWith('auth0');
   }
 
   private doLogoutUser() {

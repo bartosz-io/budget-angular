@@ -1,7 +1,13 @@
 :host {
   display: block;
-  margin-top: 30vh;
+  margin-top: 20vh;
   width: 100%;
+}
+
+.auth0 {
+  position: absolute;
+  right: 20px;
+  top: 0px;
 }
 
 form {

@@ -20,6 +20,7 @@ import { User } from '@models/user';
 })
 export class AccountComponent implements OnInit {
 
+  isAuth0 = false;
   tfaEnabled = false;
   ownEmail: string;
   isLoading = false;
@@ -37,6 +38,7 @@ export class AccountComponent implements OnInit {
     this.authService.getCurrentUser$().subscribe(user => {
       this.ownEmail = user.email;
       this.tfaEnabled = user.tfa;
+      this.isAuth0 = this.authService.isAuth0User(user);
     });
     this.authService.getUserRole$()
       .pipe(
@@ -95,6 +97,10 @@ export class AccountComponent implements OnInit {
           return throwError(errorResponse);
         }))
       .subscribe(() => this.showResultSnackbar('User deleted'));
+  }
+
+  logoutAuth0() {
+    this.authService.logoutAuth0();
   }
 
   private loadUsers$() {

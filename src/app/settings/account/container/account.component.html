@@ -7,9 +7,12 @@
     <h2>User profile</h2>
 
     <div>{{ownEmail}}</div>
+    <mat-card-actions *ngIf="isAuth0">
+      <button mat-raised-button color="primary" (click)="logoutAuth0()">Auth0 logout</button>
+    </mat-card-actions>
   </mat-card>
 
-  <mat-card>
+  <mat-card *ngIf="!isAuth0">
     <h2>Two-factor authentication</h2>
 
     <mat-slide-toggle [(ngModel)]="tfaEnabled" (change)="updateTfa($event)" [disabled]='isLoading'>{{ tfaEnabled ? 'Enabled' : 'Disabled' }}</mat-slide-toggle>
