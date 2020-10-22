@@ -17,7 +17,7 @@ export class PasswordService {
   }
 
   requestRecovery(email: string) {
-    return this.http.get<any>(`${config.authUrl}/recover?email=${email}`);
+    return this.http.post<any>(`${config.authUrl}/recover-request`, { email });
   }
 
   recover(email: string, code: string, password: string): Observable<void> {
