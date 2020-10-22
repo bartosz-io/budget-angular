@@ -14,11 +14,11 @@ export class ExpenseApi {
   constructor(private http: HttpClient) {}
 
   getExpenses(period: Period): Observable<Expense[]> {
-    return this.http.get<Expense[]>(`${this.API_URL}/${period.month}/${period.year}`);
+    return this.http.get<Expense[]>(`${this.API_URL}/?month=${period.month}&year=${period.year}`);
   }
 
   filterExpenses(period: Period, category: string): Observable<Expense[]> {
-    return this.http.get<Expense[]>(`${this.API_URL}/${period.month}/${period.year}/?categoryName=${category}`);
+    return this.http.get<Expense[]>(`${this.API_URL}/?month=${period.month}&year=${period.year}&categoryName=${category}`);
   }
 
   createExpense(expense: Expense): Observable<void> {
