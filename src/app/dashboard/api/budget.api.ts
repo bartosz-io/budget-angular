@@ -14,12 +14,12 @@ export class BudgetApi {
   constructor(private http: HttpClient) {}
 
   getBudgets(period: Period): Observable<Budget[]> {
-    return this.http.get(`${config.apiUrl}/budgets/${period.month}/${period.year}`)
+    return this.http.get(`${config.apiUrl}/budgets/?month=${period.month}&year=${period.year}`)
       .pipe(map((budgets: any[]) => budgets.map(budget => Budget.buildFromJson(budget))));
   }
 
   getBudgetSummary(period: Period): Observable<BudgetSummary> {
-    return this.http.get<BudgetSummary>(`${config.apiUrl}/budget-summary/${period.month}/${period.year}`)
+    return this.http.get<BudgetSummary>(`${config.apiUrl}/budget-summary/?month=${period.month}&year=${period.year}`)
       .pipe(map(summary => BudgetSummary.buildFromJson(summary)));
   }
 
