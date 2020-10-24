@@ -8,7 +8,7 @@ import { map, switchMap, catchError, tap, filter } from 'rxjs/operators';
 
 import { AuthService } from '../../../auth/services/auth.service';
 import { AccountService } from '../account.service';
-import { UserDialogComponent } from '../components/user-dialog/user-dialog-component';
+import { UserDialogComponent } from '../components/user-dialog/user-dialog.component';
 import { SecretDialogComponent } from '../components/secret-dialog/secret-dialog.component';
 import { SnackBarComponent } from '../../../shared/components/snackbar/snackbar.component';
 import { User } from '@models/user';

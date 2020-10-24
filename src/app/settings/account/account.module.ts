@@ -4,7 +4,7 @@ import { QrCodeModule } from 'ng-qrcode';
 
 import { SharedModule } from '../../shared/shared.module';
 import { AccountComponent } from './container/account.component';
-import { UserDialogComponent } from './components/user-dialog/user-dialog-component';
+import { UserDialogComponent } from './components/user-dialog/user-dialog.component';
 import { SecretDialogComponent } from './components/secret-dialog/secret-dialog.component';
 import { AccountService } from './account.service';
 import { UserApi } from './api/user.api';
