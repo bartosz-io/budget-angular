@@ -88,6 +88,10 @@ import { MockApi } from './../mocks/mock.api'; // mocks are defined here 😎
 export class CoreModule { }
 ```
 
+## Mock users
+
+You can find mock users in [in-memory-user.repository.ts](https://github.com/bartosz-io/budget-node/blob/master/src/app/auth/repositories/in-memory/in-memory-user.repository.ts#L62) in the backend API for this application.
+
 ## Implemented security measures
 
 > **_NOTE:_**  The security measures on the frontend part are not enought to protect the user. Make sure to check the description of security measures in the backend application in [Node repository](https://github.com/bartosz-io/budget-node).
