@@ -6,12 +6,13 @@
     "module": "commonjs",
     "target": "es5",
     "types": [
-      "jasmine",
-      "node"
-    ]
+      "node",
+      "jest"
+    ],
+    "emitDecoratorMetadata": true,
+    "allowJs": true
   },
   "files": [
-    "test.ts",
     "polyfills.ts"
   ],
   "include": [
