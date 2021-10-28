@@ -9,4 +9,15 @@ module.exports = {
       "tsconfig": "<rootDir>/src/tsconfig.spec.json"
     }
   },
+
+  moduleNameMapper: {
+    "^@models/(.*)": "<rootDir>/src/app/models/$1"
+  },
+
+  collectCoverage: false,
+  collectCoverageFrom: [
+    "**/*.{js,ts}",
+    "!**/node_modules/**",
+    "!**/vendor/**"
+  ]
 };
