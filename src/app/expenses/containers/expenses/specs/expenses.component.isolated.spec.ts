@@ -6,14 +6,10 @@ import { PeriodService } from './../../../../shared/services/period.service';
 import { ExpensesService } from './../../../services/expenses.service';
 import { AuthService } from '../../../../auth/services/auth.service';
 
-function mock<T>(o: Pick<T, keyof T>): T {
-  return o;
-}
-
 describe('Isolated test: ExpensesComponent', () => {
 
   let component: ExpensesComponent;
-  let periodServiceMock;
+  let periodServiceMock: Pick<PeriodService, 'getCurrentPeriod'>;
 
   beforeEach(() => {
     periodServiceMock = {
@@ -21,7 +17,7 @@ describe('Isolated test: ExpensesComponent', () => {
     };
     component = new ExpensesComponent(
       {} as AuthService,
-      mock<PeriodService>(periodServiceMock),
+      periodServiceMock as PeriodService,
       {} as ExpensesService,
       {} as ExpenseCategoriesService,
       {} as MatDialog,
