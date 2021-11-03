@@ -14,6 +14,8 @@ import { MenuItemDirective } from './menu-item.directive';
 import { HttpErrorInterceptor } from './error.interceptor';
 import { MockApi } from './../mocks/mock.api';
 import { CacheService } from './cache.service';
+import { HttpErrorHandler } from './error.handler';
+import { ConfigProvider } from './config.provider';
 
 registerLocaleData(localePl);
 
@@ -37,6 +39,8 @@ registerLocaleData(localePl);
   ],
   providers: [
     CacheService,
+    ConfigProvider,
+    HttpErrorHandler,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpErrorInterceptor,

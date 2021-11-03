@@ -2,14 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { SnackBarComponent } from '../shared/components/snackbar/snackbar.component';
+import { HttpErrorHandler } from './error.handler';
 import { config } from '../core/config';
 
 @Injectable()
 export class HttpErrorInterceptor implements HttpInterceptor {
 
-  constructor(private snackBar: MatSnackBar) { }
+  constructor(private handler: HttpErrorHandler) { }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(request).pipe(
@@ -36,10 +35,7 @@ export class HttpErrorInterceptor implements HttpInterceptor {
   }
 
   private showErrorMessage(error: HttpErrorResponse) {
-    this.snackBar.openFromComponent(SnackBarComponent, {
-      duration: 3000,
-      data: error.error.msg ?? 'Unknown error'
-    });
+    this.handler.handleError(error);
   }
 
 }

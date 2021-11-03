@@ -5,6 +5,7 @@ import { TestBed } from "@angular/core/testing";
 import { of } from 'rxjs';
 
 import { Period } from '@models/period';
+import { ConfigProvider } from './../../core/config.provider';
 import { BudgetApi } from './../../dashboard/api/budget.api';
 import { DashboardService } from './../../dashboard/dashboard.service';
 import { CacheService } from '../../core/cache.service';
@@ -27,6 +28,7 @@ describe('AuthService', () => {
         CacheService,
         DashboardService,
         BudgetApi,
+        ConfigProvider,
         {
           provide: AUTH_STRATEGY,
           useClass: JwtAuthStrategy
