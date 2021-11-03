@@ -50,6 +50,7 @@
     "jest": "latest",
     "json-server": "^0.17.0",
     "karma-cli": "~2.0.0",
+    "msw": "^0.35.0",
     "protractor": "~7.0.0",
     "ts-node": "~8.6.2",
     "tslint": "^6.1.3",
