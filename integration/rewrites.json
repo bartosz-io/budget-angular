@@ -1,0 +1,4 @@
+{
+  "/api/*": "/$1",
+  "/budgets/\\?month=:month&year=:year": "/budgets/?period.month=:month&period.year=:year"
+}

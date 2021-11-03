@@ -8,7 +8,9 @@
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "mock-server": "json-server integration/db.json --routes integration/rewrites.json",
+    "test:integration": "ng test --testMatch **/integration/*.(it).ts"
   },
   "private": true,
   "dependencies": {
@@ -40,11 +42,13 @@
     "@types/jasmine": "^3.5.14",
     "@types/jasminewd2": "^2.0.10",
     "@types/jest": "latest",
+    "@types/json-server": "^0.14.4",
     "@types/node": "^13.13.52",
     "codelyzer": "^5.2.2",
     "jasmine-core": "~3.5.0",
     "jasmine-spec-reporter": "~5.0.0",
     "jest": "latest",
+    "json-server": "^0.17.0",
     "karma-cli": "~2.0.0",
     "protractor": "~7.0.0",
     "ts-node": "~8.6.2",

@@ -1,0 +1,10 @@
+{
+  "budgets": [{
+    "id": 1,
+    "accountId": 1,
+    "period": {
+      "month": 12,
+      "year": 2020
+    }
+  }]
+}
