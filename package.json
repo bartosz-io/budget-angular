@@ -10,7 +10,8 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "mock-server": "json-server integration/db.json --routes integration/rewrites.json",
-    "test:integration": "ng test --testMatch **/integration/*.(it).ts"
+    "test:integration": "ng test --testMatch **/integration/*.(it).ts",
+    "cypress:open": "cypress open"
   },
   "private": true,
   "dependencies": {
@@ -45,6 +46,7 @@
     "@types/json-server": "^0.14.4",
     "@types/node": "^13.13.52",
     "codelyzer": "^5.2.2",
+    "cypress": "^8.7.0",
     "jasmine-core": "~3.5.0",
     "jasmine-spec-reporter": "~5.0.0",
     "jest": "latest",
