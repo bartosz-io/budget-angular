@@ -1,3 +1,4 @@
+import { ForRolesDirective } from './../../../../auth/directives/for-roles.directive';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientModule } from '@angular/common/http';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
@@ -20,6 +21,7 @@ describe('Shallow test: ExpensesComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         ExpensesComponent,
+        ForRolesDirective, // NO_ERRORS_SCHEMA doesn't work for directives (they NEED to be declared)
       ],
       imports: [
         HttpClientModule,
