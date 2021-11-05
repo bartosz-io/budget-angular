@@ -1,7 +1,9 @@
+import { Injectable } from "@angular/core";
 import { HttpErrorResponse } from "@angular/common/http";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { SnackBarComponent } from '../shared/components/snackbar/snackbar.component';
 
+@Injectable()
 export class HttpErrorHandler {
 
   constructor(private snackBar: MatSnackBar) {};
