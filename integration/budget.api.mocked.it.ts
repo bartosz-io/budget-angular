@@ -45,7 +45,12 @@ describe('BudgetApi mocked TCP/IP', () => {
       ],
       providers: [
         BudgetApi,
-        ConfigProvider,
+        {
+          provide: ConfigProvider,
+          useValue: {
+            getConfig: () => ({ apiUrl: '/api' })
+          }
+        }
       ]
     });
 
