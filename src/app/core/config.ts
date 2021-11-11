@@ -5,10 +5,10 @@ interface Config {
 
 // Session auth needs to use the same origin anyway
 export const config: Config = {
-  apiUrl: '/api',
-  adminUrl: '/api/admin',
-  authUrl: '/api/auth',
-  auth: 'session'
+  apiUrl: 'http://localhost:8080/api',
+  adminUrl: 'http://localhost:8080/api/admin',
+  authUrl: 'http://localhost:8080/api/auth',
+  auth: 'token'
 };
 
 export const auth0 = {
