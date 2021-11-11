@@ -17,8 +17,7 @@ describe('BudgetApi', () => {
 
   beforeAll((done) => {
     port = getRandomPort();
-    server = mockserver().listen(port);
-    done();
+    server = mockserver().listen(port, () => done());
   });
 
   afterAll((done) => {

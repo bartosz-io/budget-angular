@@ -23,8 +23,7 @@ describe('HttpErrorInterceptor', () => {
 
   beforeAll((done) => {
       port = getRandomPort();
-      server = mockserver('empty-db.json').listen(port);
-      done();
+      server = mockserver('empty-db.json').listen(port, () => done());
   });
 
   afterAll((done) => {
@@ -78,7 +77,7 @@ describe('HttpErrorInterceptor', () => {
   it('calls error handler when error thrown', (done) => {
 
     // when
-    api.getBudgets(new Period(12, 1900)).subscribe({
+    api.getBudgets(new Period(12, 2020)).subscribe({
       error: () => {
 
         // then
