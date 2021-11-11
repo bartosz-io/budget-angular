@@ -18,7 +18,7 @@
     [submitCallback]="getSubmitExpenseCallback$()">
   </expenses-table>
 
-  <div class="add">
+  <div data-cy="add-expense" class="add">
     <button mat-fab color="primary" (click)="openExpenseDialog()" *forRoles="['owner']">+</button>
   </div>
 

@@ -2,18 +2,18 @@
 
 <form [formGroup]="expenseForm">
   <mat-form-field>
-    <input matInput [matDatepicker]="picker" placeholder="Date of expense" formControlName="datetime">
+    <input matInput data-cy="expense-date" [matDatepicker]="picker" placeholder="Date of expense" formControlName="datetime">
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput placeholder="Couterparty" formControlName="counterparty">
+    <input matInput data-cy="expense-counterparty" placeholder="Couterparty" formControlName="counterparty">
   </mat-form-field>
 
   <mat-form-field>
     <mat-label>Expense category</mat-label>
-    <mat-select formControlName="categoryId">
+    <mat-select formControlName="categoryId" data-cy="expense-category">
       <mat-option *ngFor="let category of categories" [value]="category.id">
         {{category.name}}
       </mat-option>
@@ -21,7 +21,7 @@
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput placeholder="Amount spent" formControlName="value">
+    <input matInput data-cy="expense-value" placeholder="Amount spent" formControlName="value">
     <span matPrefix>$</span>
   </mat-form-field>
 

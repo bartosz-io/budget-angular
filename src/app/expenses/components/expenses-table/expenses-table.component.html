@@ -19,12 +19,12 @@
 
     <ng-container matColumnDef="value">
       <mat-header-cell *matHeaderCellDef class="pull-right"> Value </mat-header-cell>
-      <mat-cell *matCellDef="let expense" class="pull-right"> {{expense.value | currency:'USD'}} </mat-cell>
+      <mat-cell data-cy="et-value" *matCellDef="let expense" class="pull-right"> {{expense.value | currency:'USD'}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="datetime">
       <mat-header-cell *matHeaderCellDef class="pd-right-10"> Date </mat-header-cell>
-      <mat-cell *matCellDef="let expense" class="pd-right-10"> {{expense.datetime | date:'dd/MM/yy'}} </mat-cell>
+      <mat-cell data-cy="et-date" *matCellDef="let expense" class="pd-right-10"> {{expense.datetime | date:'dd/MM/yy'}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="category">
@@ -34,7 +34,7 @@
 
     <ng-container matColumnDef="counterparty">
       <mat-header-cell *matHeaderCellDef> Counterparty </mat-header-cell>
-      <mat-cell *matCellDef="let expense"> {{expense.counterparty}} </mat-cell>
+      <mat-cell data-cy="et-counterparty" *matCellDef="let expense"> {{expense.counterparty}} </mat-cell>
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
