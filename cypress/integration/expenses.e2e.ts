@@ -22,7 +22,7 @@ describe('Expenses page', () => {
     const cp = getRandomString();
     const value = getRandomNumber();
 
-    // open the popup from to add expense
+    // open the popup form to add expense
     cy.get('[data-cy=add-expense]').click();
 
     // enter the data
