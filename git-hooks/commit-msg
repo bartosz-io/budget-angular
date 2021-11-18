@@ -1,0 +1,14 @@
+#!/bin/sh
+
+RED=$(tput setaf 1)
+NORMAL=$(tput sgr0)
+
+regex="^TICKET-[0-9]+:.*"
+message=`cat $1`
+
+if ! [[ $message =~ $regex ]]; then
+  echo "${RED}ERROR: Commit message must start with a ticket id, for example TICKET-1:${NORMAL}"
+  exit 1
+fi
+
+exit 0
