@@ -12,9 +12,6 @@ module.exports = {
   },
 
   collectCoverage: false,
-  collectCoverageFrom: [
-    "**/*.{js,ts}",
-    "!**/node_modules/**",
-    "!**/vendor/**"
-  ]
+  collectCoverageFrom: [ "src/**/*.{js,ts}" ],
+  coverageReporters: ["lcov", "text-summary"],
 };
