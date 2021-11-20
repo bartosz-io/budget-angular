@@ -92,6 +92,7 @@ describe("AuthService", () => {
       .mockImplementation(() => Promise.resolve(true));
 
     const cacheService = TestBed.inject(CacheService);
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
     jest.spyOn(cacheService, "pruneAll").mockImplementation(() => {});
 
     // when
