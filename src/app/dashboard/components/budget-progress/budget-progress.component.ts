@@ -18,8 +18,6 @@ export class BudgetProgressComponent implements OnInit {
   budget: Budget;
   today: string;
 
-  constructor() {}
-
   ngOnInit() {
     this.today = "60%";
   }

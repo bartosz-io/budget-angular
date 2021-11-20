@@ -24,7 +24,7 @@ export class MockApi implements InMemoryDbService {
     };
   }
 
-  get(info: RequestInfo, db: {}) {
+  get(info: RequestInfo, db: unknown) {
     switch (this.findUrlSegmentForPost(info.req.url)) {
       case "/logout":
         return this.handleLogout(info);
@@ -33,7 +33,7 @@ export class MockApi implements InMemoryDbService {
     }
   }
 
-  post(info: RequestInfo, db: {}) {
+  post(info: RequestInfo, db: unknown) {
     switch (this.findUrlSegmentForPost(info.req.url)) {
       case "/login":
         return this.handleLogin(info);
@@ -44,7 +44,7 @@ export class MockApi implements InMemoryDbService {
     }
   }
 
-  put(info: RequestInfo, db: {}) {
+  put(info: RequestInfo, db: unknown) {
     switch (this.findUrlSegmentForPut(info.req.url)) {
       case "/expenses":
         return this.interceptExpensesRequest(info);
