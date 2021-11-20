@@ -15,6 +15,7 @@
     "test:pact": "ng test --testMatch **/contract/*.(pact).ts",
     "cypress:open": "cypress open",
     "eslint": "eslint src/**/*.{js,ts}",
+    "eslint:fix": "eslint --fix src/**/*.{js,ts}",
     "stylelint": "stylelint src/**/*.scss",
     "stylelint:fix": "stylelint src/**/*.scss --fix"
   },
