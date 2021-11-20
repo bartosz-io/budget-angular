@@ -6,13 +6,19 @@
     "prettier"
   ],
   "env": {
+    "browser": true,
     "es6": true,
-    "node": true
+    "jest": true
   },
   "rules": {
     "prettier/prettier": "error",
-    "max-len": ["error", {"code": 100}],
-    "indent": ["error", 2]
+    "max-len": ["error", {"code": 120}],
+
+    "indent": "off",
+    "@typescript-eslint/indent": "off",
+
+    "no-unused-vars": 0,
+    "@typescript-eslint/no-unused-vars": 0
   },
   "plugins": [
     "prettier"
