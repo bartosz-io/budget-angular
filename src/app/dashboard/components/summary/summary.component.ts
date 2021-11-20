@@ -1,9 +1,4 @@
-import {
-  Component,
-  OnInit,
-  ChangeDetectionStrategy,
-  Input,
-} from "@angular/core";
+import { Component, ChangeDetectionStrategy, Input } from "@angular/core";
 import { BudgetSummary } from "@models/budgetSummary";
 
 @Component({
@@ -12,9 +7,7 @@ import { BudgetSummary } from "@models/budgetSummary";
   styleUrls: ["./summary.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SummaryComponent implements OnInit {
+export class SummaryComponent {
   @Input()
   budgetSummary: BudgetSummary;
-
-  ngOnInit() {}
 }
