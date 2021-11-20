@@ -1,26 +1,32 @@
-import { InMemoryDbService, RequestInfo, RequestInfoUtilities, ParsedRequestUrl, STATUS } from 'angular-in-memory-web-api';
-import { tokens } from './auth.mock';
-import { budgets } from './budget.mock';
-import { expenses } from './expenses.mock';
-import { budgetSummary } from './budgetSummary.mock';
-import { budgetDefinition } from './budgetDefinition.mock';
-import { expenseCategories } from './expenseCategory.mock';
+import {
+  InMemoryDbService,
+  RequestInfo,
+  RequestInfoUtilities,
+  ParsedRequestUrl,
+  STATUS,
+} from "angular-in-memory-web-api";
+import { tokens } from "./auth.mock";
+import { budgets } from "./budget.mock";
+import { expenses } from "./expenses.mock";
+import { budgetSummary } from "./budgetSummary.mock";
+import { budgetDefinition } from "./budgetDefinition.mock";
+import { expenseCategories } from "./expenseCategory.mock";
 
 export class MockApi implements InMemoryDbService {
-
   createDb() {
     return {
       users: [],
-      budgets, expenses,
-      'budget-summary': budgetSummary,
-      'budget-definition': budgetDefinition,
-      'expense-categories': expenseCategories
+      budgets,
+      expenses,
+      "budget-summary": budgetSummary,
+      "budget-definition": budgetDefinition,
+      "expense-categories": expenseCategories,
     };
   }
 
   get(info: RequestInfo, db: {}) {
     switch (this.findUrlSegmentForPost(info.req.url)) {
-      case '/logout':
+      case "/logout":
         return this.handleLogout(info);
       default:
         return undefined;
@@ -29,9 +35,9 @@ export class MockApi implements InMemoryDbService {
 
   post(info: RequestInfo, db: {}) {
     switch (this.findUrlSegmentForPost(info.req.url)) {
-      case '/login':
+      case "/login":
         return this.handleLogin(info);
-      case '/expenses':
+      case "/expenses":
         return this.interceptExpensesRequest(info);
       default:
         return undefined;
@@ -40,7 +46,7 @@ export class MockApi implements InMemoryDbService {
 
   put(info: RequestInfo, db: {}) {
     switch (this.findUrlSegmentForPut(info.req.url)) {
-      case '/expenses':
+      case "/expenses":
         return this.interceptExpensesRequest(info);
       default:
         return undefined;
@@ -55,7 +61,13 @@ export class MockApi implements InMemoryDbService {
 
   genId<T extends { id: any }>(collection: T[], collectionName: string): any {
     // increase by 1 the greatest id in collection
-    return 1 + collection.reduce((prev, curr) => Math.max(prev, parseInt(curr.id, 0) || 0), 1);
+    return (
+      1 +
+      collection.reduce(
+        (prev, curr) => Math.max(prev, parseInt(curr.id, 0) || 0),
+        1
+      )
+    );
   }
 
   /**
@@ -77,31 +89,31 @@ export class MockApi implements InMemoryDbService {
   private handleLogin(info: RequestInfo) {
     const body = info.utils.getJsonBody(info.req);
     const token = tokens[body.email];
-    const response = token ?
-      {
-        body: { jwt: token },
-        status: STATUS.OK
-      } :
-      {
-        error: {
-          msg: 'Login failed'
-        },
-        status: STATUS.UNAUTHORIZED
-      };
+    const response = token
+      ? {
+          body: { jwt: token },
+          status: STATUS.OK,
+        }
+      : {
+          error: {
+            msg: "Login failed",
+          },
+          status: STATUS.UNAUTHORIZED,
+        };
 
     return info.utils.createResponse$(() => response);
   }
 
   private handleLogout(info: RequestInfo) {
     const response = {
-      status: STATUS.OK
+      status: STATUS.OK,
     };
     return info.utils.createResponse$(() => response);
   }
 
   private interceptExpensesRequest(info: RequestInfo) {
     const body = (<any>info.req).body;
-    body.category = expenseCategories.find(c => c.id === body.categoryId);
+    body.category = expenseCategories.find((c) => c.id === body.categoryId);
     body.categoryName = body.category?.name;
     return undefined;
   }
@@ -110,7 +122,6 @@ export class MockApi implements InMemoryDbService {
     // In MockApi we don't filter data by period.
     // For example "/expenses/4/2020" is mapped to "/expenses",
     // so any period-scoped request results in the same mock data
-    return url.replace(/\/[\d]+\/[\d]+/, '');
+    return url.replace(/\/[\d]+\/[\d]+/, "");
   }
-
 }

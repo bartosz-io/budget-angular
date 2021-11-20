@@ -1,14 +1,13 @@
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
 
-import { SecretApi } from './api/secret.api';
-import { UserApi } from './api/user.api';
-import { User } from '@models/user';
+import { SecretApi } from "./api/secret.api";
+import { UserApi } from "./api/user.api";
+import { User } from "@models/user";
 
 @Injectable()
 export class AccountService {
-
-  constructor(private userApi: UserApi, private secretApi: SecretApi) { }
+  constructor(private userApi: UserApi, private secretApi: SecretApi) {}
 
   getUsers(): Observable<User[]> {
     return this.userApi.getUsers();
@@ -29,5 +28,4 @@ export class AccountService {
   getSecret() {
     return this.secretApi.getSecret();
   }
-
 }

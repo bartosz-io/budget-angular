@@ -1,32 +1,45 @@
-import { Component, OnInit, Input, ChangeDetectionStrategy, Output, EventEmitter } from '@angular/core';
-import { FormBuilder, Validators, FormGroup, FormArray, FormControl } from '@angular/forms';
+import {
+  Component,
+  OnInit,
+  Input,
+  ChangeDetectionStrategy,
+  Output,
+  EventEmitter,
+} from "@angular/core";
+import {
+  FormBuilder,
+  Validators,
+  FormGroup,
+  FormArray,
+  FormControl,
+} from "@angular/forms";
 
-import { ExpenseCategory } from '@models/expenseCategory';
+import { ExpenseCategory } from "@models/expenseCategory";
 
 @Component({
-  selector: 'category-form',
-  templateUrl: './category-form.component.html',
-  styleUrls: ['./category-form.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  selector: "category-form",
+  templateUrl: "./category-form.component.html",
+  styleUrls: ["./category-form.component.scss"],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CategoryFormComponent implements OnInit {
-
   @Input() editMode = false;
   @Input() category: ExpenseCategory;
   @Output() categoryAdded: EventEmitter<ExpenseCategory> = new EventEmitter();
   @Output() categoryUpdated: EventEmitter<ExpenseCategory> = new EventEmitter();
   categoryForm: FormGroup;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder) {}
 
   ngOnInit() {
-    const patternsInitial = this.category.counterpartyPatterns
-      .map(pattern => this.createPatternInput(pattern));
+    const patternsInitial = this.category.counterpartyPatterns.map((pattern) =>
+      this.createPatternInput(pattern)
+    );
 
     this.categoryForm = this.fb.group({
       id: [this.category.id],
       name: [this.category.name, Validators.required],
-      counterpartyPatterns: this.fb.array(patternsInitial)
+      counterpartyPatterns: this.fb.array(patternsInitial),
     });
   }
 
@@ -35,7 +48,7 @@ export class CategoryFormComponent implements OnInit {
   }
 
   addPattern() {
-    this.patterns.push(this.createPatternInput(''));
+    this.patterns.push(this.createPatternInput(""));
   }
 
   addCategory() {
@@ -49,7 +62,7 @@ export class CategoryFormComponent implements OnInit {
   }
 
   get patterns(): FormArray {
-    return this.categoryForm.get('counterpartyPatterns') as FormArray;
+    return this.categoryForm.get("counterpartyPatterns") as FormArray;
   }
 
   private createPatternInput(value: string) {

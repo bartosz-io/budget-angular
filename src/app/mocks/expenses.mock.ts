@@ -1,5 +1,5 @@
-import { expenseCategories } from './expenseCategory.mock';
-import { Expense } from '@models/expense';
+import { expenseCategories } from "./expenseCategory.mock";
+import { Expense } from "@models/expense";
 
 function getRandomDate(): Date {
   const date = new Date();
@@ -9,13 +9,14 @@ function getRandomDate(): Date {
 }
 
 function getRandomCategory() {
-  const category = expenseCategories[Math.floor(Math.random() * expenseCategories.length)];
+  const category =
+    expenseCategories[Math.floor(Math.random() * expenseCategories.length)];
   const coutnerparty = category.counterpartyPatterns[0];
   return {
     category,
     categoryId: category.id,
     categoryName: category.name,
-    counterparty: coutnerparty.charAt(0).toUpperCase() + coutnerparty.slice(1)
+    counterparty: coutnerparty.charAt(0).toUpperCase() + coutnerparty.slice(1),
   };
 }
 
@@ -26,14 +27,12 @@ function getRandomValue() {
 function generateExpenses(): Expense[] {
   const randomExpenses = [];
   for (let i = 0; i < 10; i++) {
-    randomExpenses.push(
-      {
-        id: i,
-        value: getRandomValue(),
-        datetime: getRandomDate(),
-        ...getRandomCategory()
-      }
-    );
+    randomExpenses.push({
+      id: i,
+      value: getRandomValue(),
+      datetime: getRandomDate(),
+      ...getRandomCategory(),
+    });
   }
   return randomExpenses.sort((a, b) => a.datetime - b.datetime);
 }

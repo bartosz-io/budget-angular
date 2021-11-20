@@ -1,3 +1,3 @@
 export class Token {
-  constructor (public jwt: string) {}
+  constructor(public jwt: string) {}
 }

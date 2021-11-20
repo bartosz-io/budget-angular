@@ -1,19 +1,23 @@
-import { Component, Input, ChangeDetectionStrategy, ViewChild } from '@angular/core';
-import { Observable } from 'rxjs';
+import {
+  Component,
+  Input,
+  ChangeDetectionStrategy,
+  ViewChild,
+} from "@angular/core";
+import { Observable } from "rxjs";
 
-import { CategoryFormComponent } from '../components/category-form/category-form.component';
-import { CategoryListComponent } from '../components/category-list/category-list.component';
-import { CategoriesFacade } from '../categories.facade';
-import { ExpenseCategory } from '@models/expenseCategory';
+import { CategoryFormComponent } from "../components/category-form/category-form.component";
+import { CategoryListComponent } from "../components/category-list/category-list.component";
+import { CategoriesFacade } from "../categories.facade";
+import { ExpenseCategory } from "@models/expenseCategory";
 
 @Component({
-  selector: 'categories',
-  templateUrl: './categories.component.html',
-  styleUrls: ['./categories.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  selector: "categories",
+  templateUrl: "./categories.component.html",
+  styleUrls: ["./categories.component.scss"],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CategoriesComponent {
-
   newCategory: ExpenseCategory = new ExpenseCategory();
   expenseCategories$: Observable<ExpenseCategory[]>;
   isUpdating$: Observable<boolean>;
@@ -40,5 +44,4 @@ export class CategoriesComponent {
   isAnyFormDirty() {
     return this.categoryForm?.isDirty() || this.categoryList.isAnyFormDirty();
   }
-
 }

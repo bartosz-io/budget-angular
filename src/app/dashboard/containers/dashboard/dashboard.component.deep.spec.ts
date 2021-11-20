@@ -1,19 +1,18 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { HttpClientModule } from '@angular/common/http';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { MatCardModule } from '@angular/material/card';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { HttpClientModule } from "@angular/common/http";
+import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
+import { MatCardModule } from "@angular/material/card";
 
-import { ConfigProvider } from './../../../core/config.provider';
-import { SummaryComponent } from './../../components/summary/summary.component';
-import { BudgetProgressComponent } from './../../components/budget-progress/budget-progress.component';
-import { DashboardComponent } from './dashboard.component';
-import { PeriodService } from './../../../shared/services/period.service';
-import { DashboardService } from './../../dashboard.service';
-import { CacheService } from './../../../core/cache.service';
-import { BudgetApi } from './../../api/budget.api';
+import { ConfigProvider } from "./../../../core/config.provider";
+import { SummaryComponent } from "./../../components/summary/summary.component";
+import { BudgetProgressComponent } from "./../../components/budget-progress/budget-progress.component";
+import { DashboardComponent } from "./dashboard.component";
+import { PeriodService } from "./../../../shared/services/period.service";
+import { DashboardService } from "./../../dashboard.service";
+import { CacheService } from "./../../../core/cache.service";
+import { BudgetApi } from "./../../api/budget.api";
 
-describe('Deep test: DashboardComponent', () => {
-
+describe("Deep test: DashboardComponent", () => {
   let fixture: ComponentFixture<DashboardComponent>;
   let component: DashboardComponent;
 
@@ -22,13 +21,9 @@ describe('Deep test: DashboardComponent', () => {
       declarations: [
         DashboardComponent,
         BudgetProgressComponent,
-        SummaryComponent
+        SummaryComponent,
       ],
-      imports: [
-        HttpClientModule,
-        MatCardModule,
-        MatProgressSpinnerModule
-      ],
+      imports: [HttpClientModule, MatCardModule, MatProgressSpinnerModule],
       providers: [
         DashboardService,
         PeriodService,
@@ -41,7 +36,7 @@ describe('Deep test: DashboardComponent', () => {
     component = fixture.componentInstance;
   });
 
-  it('creates the component', () => {
+  it("creates the component", () => {
     expect(component).toBeTruthy();
   });
 });

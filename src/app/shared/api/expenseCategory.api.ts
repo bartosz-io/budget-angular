@@ -1,13 +1,12 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
 
-import { config } from '../../core/config';
-import { ExpenseCategory } from '@models/expenseCategory';
+import { config } from "../../core/config";
+import { ExpenseCategory } from "@models/expenseCategory";
 
 @Injectable()
 export class ExpenseCategoryApi {
-
   private API_URL = `${config.apiUrl}/expense-categories`;
 
   constructor(private http: HttpClient) {}
@@ -23,5 +22,4 @@ export class ExpenseCategoryApi {
   updateExpenseCategory(category: ExpenseCategory): Observable<any> {
     return this.http.put(`${this.API_URL}/${category.id}`, category);
   }
-
 }

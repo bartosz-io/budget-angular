@@ -1,8 +1,7 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
 
 @Injectable()
 export class CacheService {
-
   prunables: Prunable[] = [];
 
   registerPrunable(prunable: Prunable) {
@@ -10,9 +9,8 @@ export class CacheService {
   }
 
   pruneAll() {
-    this.prunables.forEach(p => p.pruneCache());
+    this.prunables.forEach((p) => p.pruneCache());
   }
-
 }
 
 export interface Prunable {

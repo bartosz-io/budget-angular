@@ -1,5 +1,5 @@
-import { Account } from './account';
-import { Role } from './types';
+import { Account } from "./account";
+import { Role } from "./types";
 
 export class User {
   id?: string;

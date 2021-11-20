@@ -1,11 +1,10 @@
-import { Injectable } from '@angular/core';
-import { Period } from '@models/period';
+import { Injectable } from "@angular/core";
+import { Period } from "@models/period";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class PeriodService {
-
   private period: Period;
 
   getCurrentPeriod() {
@@ -15,5 +14,4 @@ export class PeriodService {
 
     return this.period;
   }
-
 }

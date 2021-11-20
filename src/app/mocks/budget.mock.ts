@@ -1,6 +1,6 @@
-import { Period } from '@models/period';
-import { Budget } from '@models/budget';
-import { expenseCategories } from './expenseCategory.mock';
+import { Period } from "@models/period";
+import { Budget } from "@models/budget";
+import { expenseCategories } from "./expenseCategory.mock";
 
 const period = new Period(3, 2020);
 
@@ -11,7 +11,7 @@ export const budgets: Budget[] = [
     period: period,
     category: expenseCategories[0],
     currentExpenses: 100,
-    maxExpenses: 500
+    maxExpenses: 500,
   }),
   Budget.build({
     id: 2,
@@ -19,7 +19,7 @@ export const budgets: Budget[] = [
     period: period,
     category: expenseCategories[1],
     currentExpenses: 100,
-    maxExpenses: 300
+    maxExpenses: 300,
   }),
   Budget.build({
     id: 3,
@@ -27,6 +27,6 @@ export const budgets: Budget[] = [
     period: period,
     category: expenseCategories[2],
     currentExpenses: 200,
-    maxExpenses: 300
-  })
+    maxExpenses: 300,
+  }),
 ];

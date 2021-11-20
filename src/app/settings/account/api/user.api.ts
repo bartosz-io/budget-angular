@@ -1,13 +1,12 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { Observable } from "rxjs";
 
-import { config } from '../../../core/config';
-import { User } from '@models/user';
+import { config } from "../../../core/config";
+import { User } from "@models/user";
 
 @Injectable()
 export class UserApi {
-
   private readonly API_URL = `${config.apiUrl}/users`;
 
   constructor(private http: HttpClient) {}
@@ -27,5 +26,4 @@ export class UserApi {
   deleteUser(id: string): Observable<void> {
     return this.http.delete<void>(`${this.API_URL}/${id}`);
   }
-
 }

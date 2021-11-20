@@ -1,23 +1,26 @@
-import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  ChangeDetectionStrategy,
+} from "@angular/core";
 
-import { Budget } from '@models/budget';
+import { Budget } from "@models/budget";
 
 @Component({
-  selector: 'budget-progress',
-  templateUrl: './budget-progress.component.html',
-  styleUrls: ['./budget-progress.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  selector: "budget-progress",
+  templateUrl: "./budget-progress.component.html",
+  styleUrls: ["./budget-progress.component.scss"],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BudgetProgressComponent implements OnInit {
-
   @Input()
   budget: Budget;
   today: string;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
-    this.today = '60%';
+    this.today = "60%";
   }
-
 }

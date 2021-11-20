@@ -1,13 +1,13 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatTableModule } from '@angular/material/table';
-import { MatCardModule } from '@angular/material/card';
-import { MatButtonModule } from '@angular/material/button';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { MatToolbarModule } from "@angular/material/toolbar";
+import { MatTableModule } from "@angular/material/table";
+import { MatCardModule } from "@angular/material/card";
+import { MatButtonModule } from "@angular/material/button";
 
-import { AdminComponent } from './admin.component';
-import { AdminRoutingModule } from './admin-routing.module';
-import { AdminService } from './admin.service';
+import { AdminComponent } from "./admin.component";
+import { AdminRoutingModule } from "./admin-routing.module";
+import { AdminService } from "./admin.service";
 
 @NgModule({
   imports: [
@@ -16,9 +16,9 @@ import { AdminService } from './admin.service';
     MatToolbarModule,
     MatTableModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
   ],
   declarations: [AdminComponent],
-  providers: [AdminService]
+  providers: [AdminService],
 })
-export class AdminModule { }
+export class AdminModule {}
