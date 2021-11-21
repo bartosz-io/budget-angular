@@ -17,7 +17,8 @@
     "eslint": "eslint src/**/*.{js,ts}",
     "eslint:fix": "eslint --fix src/**/*.{js,ts}",
     "stylelint": "stylelint src/**/*.scss",
-    "stylelint:fix": "stylelint src/**/*.scss --fix"
+    "stylelint:fix": "stylelint src/**/*.scss --fix",
+    "lint-staged": "lint-staged"
   },
   "private": true,
   "dependencies": {
