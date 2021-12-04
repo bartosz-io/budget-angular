@@ -24,14 +24,26 @@ jobs:
     - run: npm ci
     - run: npm run build
     - run: npm test -- --collect-coverage
-    - run: npm run test:integration
-    - run: npm run test:pact
     - run: npm run eslint
     - name: Archive code coverage results
       uses: actions/upload-artifact@v1
       with:
         name: code-coverage-report
         path: coverage
+
+  integrationTests:
+    needs: build
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js 14
+      uses: actions/setup-node@v2
+      with:
+        node-version: 14
+        cache: 'npm'
+    - run: npm ci
+    - run: npm run test:integration
+    - run: npm run test:pact
 
   sonarcloud:
     needs: build
