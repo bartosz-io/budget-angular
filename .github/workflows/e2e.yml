@@ -8,26 +8,25 @@ jobs:
     steps:
       - name: Checkout the application
         uses: actions/checkout@v2
-    
+
       - name: Checkout the server
         uses: actions/checkout@v2
         with:
           repository: bartosz-io/budget-node
           path: './node'
-    
+
       - name: Use Node.js 14
         uses: actions/setup-node@v2
         with:
           node-version: 14
           cache: 'npm'
-          
-      - name: npm install and start the server
+
+      - name: npm install the server
         working-directory: ./node
-        run: |
-          npm ci
-          npm run start
+        run: npm ci
 
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
+          start: npm run start:node
           wait-on: 'http://localhost:8080'
