@@ -9,9 +9,7 @@ on:
 
 jobs:
   build:
-
     runs-on: windows-latest
-
     steps:
     - name: Set git to use LF
       run: |
@@ -27,3 +25,13 @@ jobs:
     - run: npm run build
     - run: npm test
     - run: npm run eslint
+
+  sonarcloud:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
