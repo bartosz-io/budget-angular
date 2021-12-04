@@ -1,4 +1,5 @@
 [![build Actions Status](https://github.com/bartosz-io/budget-angular/actions/workflows/master-ci.yml/badge.svg)](https://github.com/bartosz-io/budget-angular/actions/workflows/master-ci.yml)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=bartosz-io_budget-angular&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=bartosz-io_budget-angular)
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=bartosz-io_budget-angular&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=bartosz-io_budget-angular)
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=bartosz-io_budget-angular&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=bartosz-io_budget-angular)
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=bartosz-io_budget-angular&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=bartosz-io_budget-angular)
