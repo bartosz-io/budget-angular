@@ -1,1 +1,1 @@
-export const googleClientId = '<place `clientId` here>';
+export const googleClientId = "<place `clientId` here>";
