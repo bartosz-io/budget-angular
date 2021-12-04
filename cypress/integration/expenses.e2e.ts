@@ -15,7 +15,7 @@ describe('Expenses page', () => {
     cy.contains('Value');
   });
 
-  it('adds a new expense', () => {
+  it.skip('adds a new expense', () => {
 
     const date = new Date().toLocaleDateString().replace(/\./g, '/');
     const expectedDate = date.substring(0, 6) + date.substr(8);
