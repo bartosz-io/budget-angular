@@ -10,7 +10,7 @@ export class HttpErrorHandler {
   handleError(error: HttpErrorResponse) {
     this.snackBar.openFromComponent(SnackBarComponent, {
       duration: 3000,
-      data: error.error.msg ?? "Unknown error",
+      data: error.error?.msg ?? "Unknown error",
     });
   }
 }

@@ -39,7 +39,7 @@ export class HttpErrorInterceptor implements HttpInterceptor {
   }
 
   private isOtpRequired(error: HttpErrorResponse) {
-    return error.error.msg === "OTP_REQUIRED";
+    return error.error?.msg === "OTP_REQUIRED";
   }
 
   private showErrorMessage(error: HttpErrorResponse) {
