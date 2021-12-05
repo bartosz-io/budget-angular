@@ -8,16 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js 14
-        uses: actions/setup-node@v2
-        with:
-          node-version: 14
-          cache: 'npm'
-      - run: npm ci
-      - run: npm run build
       - uses: akhileshns/heroku-deploy@v3.12.12
         with:
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
           heroku_app_name: "budget-angular"
           heroku_email: "pietrucha.bartosz@gmail.com"
-          appdir: "dist"
