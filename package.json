@@ -5,7 +5,8 @@
   "scripts": {
     "postinstall": "git config core.hooksPath ./git-hooks",
     "ng": "ng",
-    "start": "ng serve",
+    "start": "node server.js",
+    "heroku-postbuild": "npm run build:in-memory",
     "start:node": "npm run start:ci --prefix ./node",
     "build": "ng build --prod",
     "build:in-memory": "ng build -c production,in-memory",
@@ -38,7 +39,9 @@
     "@briebug/jest-schematic": "^3.1.0",
     "angular-in-memory-web-api": "^0.10.0",
     "core-js": "^3.19.0",
+    "express": "^4.17.1",
     "ng-qrcode": "^3.1.0",
+    "path": "^0.12.7",
     "rxjs": "^6.6.7",
     "webpack-bundle-analyzer": "^3.9.0",
     "zone.js": "^0.10.3"
