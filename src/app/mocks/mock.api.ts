@@ -120,8 +120,8 @@ export class MockApi implements InMemoryDbService {
 
   private removePeriodFromUrl(url) {
     // In MockApi we don't filter data by period.
-    // For example "/expenses/4/2020" is mapped to "/expenses",
+    // For example "/expenses/?month=3&year=2020" is mapped to "/expenses",
     // so any period-scoped request results in the same mock data
-    return url.replace(/\/[\d]+\/[\d]+/, "");
+    return url.replace(/\/\?month=[\d]+&year=[\d]+/, "");
   }
 }
