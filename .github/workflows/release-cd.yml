@@ -1,0 +1,76 @@
+# This workflow will do a clean install of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: Release CD
+
+on:
+  push:
+    branches: [ release ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+    - name: Set git to use LF
+      run: |
+        git config --global core.autocrlf false
+        git config --global core.eol lf
+    - uses: actions/checkout@v2
+    - name: Use Node.js 14
+      uses: actions/setup-node@v2
+      with:
+        node-version: 14
+        cache: 'npm'
+    - run: npm ci
+    - run: npm run build
+    - run: npm test -- --collect-coverage
+    - run: npm run eslint
+    - name: Archive code coverage results
+      uses: actions/upload-artifact@v1
+      with:
+        name: code-coverage-report
+        path: coverage
+
+  integrationTests:
+    needs: build
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js 14
+      uses: actions/setup-node@v2
+      with:
+        node-version: 14
+        cache: 'npm'
+    - run: npm ci
+    - run: npm run test:integration
+    - run: npm run test:pact
+
+  sonarcloud:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Download code coverage results
+        uses: actions/download-artifact@v1
+        with:
+          name: code-coverage-report
+          path: coverage
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+  deploy-release:
+    needs: [integrationTests, sonarcloud]
+    name: "Deploy release branch"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+          heroku_app_name: "budget-angular"
+          heroku_email: "pietrucha.bartosz@gmail.com"
+          branch: "release"
+
