@@ -8,6 +8,7 @@
     "start": "ng serve",
     "start:node": "npm run start:ci --prefix ./node",
     "build": "ng build --prod",
+    "build:in-memory": "ng build -c production,in-memory",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",

@@ -44,6 +44,14 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ]
+            },
+            "in-memory": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.in-memory.ts"
+                }
+              ]
             }
           }
         },
@@ -55,6 +63,9 @@
           "configurations": {
             "production": {
               "browserTarget": "budget:build:production"
+            },
+            "in-memory": {
+              "browserTarget": "budget:build:in-memory"
             }
           }
         },

@@ -11,6 +11,7 @@ import {
 import { HttpClientInMemoryWebApiModule } from "angular-in-memory-web-api";
 import { MatNativeDateModule } from "@angular/material/core";
 import { MatProgressBarModule } from "@angular/material/progress-bar";
+import { environment } from "./../../environments/environment";
 
 import { SharedModule } from "./../shared/shared.module";
 import { LayoutComponent } from "./layout/layout.component";
@@ -23,6 +24,17 @@ import { ConfigProvider } from "./config.provider";
 
 registerLocaleData(localePl);
 
+const modules = [];
+
+if (environment.useInMemoryDB) {
+  modules.push(
+    HttpClientInMemoryWebApiModule.forRoot(MockApi, {
+      passThruUnknownUrl: true,
+      delay: 1000,
+    })
+  );
+}
+
 @NgModule({
   imports: [
     HttpClientModule,
@@ -30,7 +42,7 @@ registerLocaleData(localePl);
       cookieName: "XSRF-Token",
       headerName: "XSRF-Token",
     }),
-    // HttpClientInMemoryWebApiModule.forRoot(MockApi, { passThruUnknownUrl: true, delay: 1000 }),
+    ...modules,
     BrowserAnimationsModule,
     MatProgressBarModule,
     SharedModule,
