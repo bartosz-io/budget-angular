@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "postinstall": "git config core.hooksPath ./git-hooks",
+    "config-hooks": "git config core.hooksPath ./git-hooks",
     "ng": "ng",
     "start": "node server.js",
     "heroku-postbuild": "npm run build:in-memory",
