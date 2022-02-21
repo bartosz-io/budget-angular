@@ -1,15 +1,14 @@
 <mat-expansion-panel *ngFor="let category of categories$ | async">
-
   <mat-expansion-panel-header>
     <mat-panel-title>
-      {{category.name}}
+      {{ category.name }}
     </mat-panel-title>
   </mat-expansion-panel-header>
 
   <category-form
     [editMode]="true"
     [category]="category"
-    (categoryUpdated)="updateCategory($event)">
+    (categoryUpdated)="updateCategory($event)"
+  >
   </category-form>
-
 </mat-expansion-panel>

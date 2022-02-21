@@ -1,8 +1,10 @@
 <div class="layout-menu">
   <div class="menu">
-
     <div class="progress-bar">
-      <mat-progress-bar mode="indeterminate" *ngIf="loadingRoute"></mat-progress-bar>
+      <mat-progress-bar
+        mode="indeterminate"
+        *ngIf="loadingRoute"
+      ></mat-progress-bar>
     </div>
 
     <button mat-button menuItem name="dashboard" routerLink="dashboard">
@@ -22,7 +24,7 @@
 
 <div class="layout-content">
   <mat-toolbar color="primary">
-    <span>{{userEmail$ | async}}</span>
+    <span>{{ userEmail$ | async }}</span>
     <period-selector *ngIf="selected !== 'settings'"></period-selector>
     <span class="right btn" (click)="logout()">Logout</span>
   </mat-toolbar>

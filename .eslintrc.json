@@ -11,17 +11,32 @@
     "es6": true,
     "jest": true
   },
-  "rules": {
-    "prettier/prettier": "error",
-    "max-len": ["error", {"code": 120}],
-
-    "indent": "off",
-    "@typescript-eslint/indent": "off",
-
-    "no-unused-vars": 0,
-    "@typescript-eslint/no-unused-vars": 0
-  },
-  "plugins": [
-    "prettier"
+  "overrides": [
+    {
+      "files": [
+        "*.ts"
+      ],
+      "rules": {
+        "prettier/prettier": "error",
+        "max-len": ["error", {"code": 120}],
+        "indent": "off",
+        "@typescript-eslint/indent": "off",
+        "no-unused-vars": 0,
+        "@typescript-eslint/no-unused-vars": 0,
+        "@typescript-eslint/no-explicit-any": 0
+      },
+      "plugins": [
+        "prettier"
+      ]
+    },
+    {
+      "files": [
+        "*.html"
+      ],
+      "extends": [
+        "plugin:@angular-eslint/template/recommended"
+      ],
+      "rules": {}
+    }
   ]
 }

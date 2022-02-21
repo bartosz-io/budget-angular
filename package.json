@@ -26,6 +26,11 @@
   "private": true,
   "dependencies": {
     "@angular-devkit/core": "^13.2.4",
+    "@angular-eslint/builder": "13.1.0",
+    "@angular-eslint/eslint-plugin": "13.1.0",
+    "@angular-eslint/eslint-plugin-template": "13.1.0",
+    "@angular-eslint/schematics": "13.1.0",
+    "@angular-eslint/template-parser": "13.1.0",
     "@angular/animations": "^13.2.3",
     "@angular/cdk": "^13.2.3",
     "@angular/common": "^13.2.3",
@@ -49,6 +54,7 @@
   "devDependencies": {
     "@angular-builders/jest": "latest",
     "@angular-devkit/build-angular": "^13.2.4",
+    "@angular-eslint/schematics": "^13.1.0",
     "@angular/cli": "^13.2.4",
     "@angular/compiler-cli": "^13.2.3",
     "@angular/language-service": "^13.2.3",

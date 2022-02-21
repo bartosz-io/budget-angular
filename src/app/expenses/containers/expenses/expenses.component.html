@@ -1,12 +1,11 @@
 <main>
-
   <div class="loading-shade" *ngIf="isLoading">
     <mat-spinner></mat-spinner>
   </div>
 
   <div class="search">
     <mat-form-field>
-      <input matInput #filter placeholder="Filter by category">
+      <input matInput #filter placeholder="Filter by category" />
     </mat-form-field>
   </div>
 
@@ -15,11 +14,18 @@
     [displayedColumns]="displayedColumns"
     [categories]="expenseCategories"
     [deleteCallback]="getLoadTableCallback$()"
-    [submitCallback]="getSubmitExpenseCallback$()">
+    [submitCallback]="getSubmitExpenseCallback$()"
+  >
   </expenses-table>
 
   <div data-cy="add-expense" class="add">
-    <button mat-fab color="primary" (click)="openExpenseDialog()" *forRoles="['owner']">+</button>
+    <button
+      mat-fab
+      color="primary"
+      (click)="openExpenseDialog()"
+      *forRoles="['owner']"
+    >
+      +
+    </button>
   </div>
-
 </main>
