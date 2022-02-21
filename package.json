@@ -8,7 +8,7 @@
     "start": "node server.js",
     "heroku-postbuild": "npm run build:in-memory",
     "start:node": "npm run start:ci --prefix ./node",
-    "build": "ng build --prod",
+    "build": "ng build --configuration production",
     "build:in-memory": "ng build -c production,in-memory",
     "test": "ng test",
     "lint": "ng lint",
@@ -25,17 +25,17 @@
   },
   "private": true,
   "dependencies": {
-    "@angular-devkit/core": "^11.2.18",
-    "@angular/animations": "^11.2.14",
+    "@angular-devkit/core": "^12.2.16",
+    "@angular/animations": "^12.2.16",
     "@angular/cdk": "^9.2.4",
-    "@angular/common": "^11.2.14",
-    "@angular/compiler": "^11.2.14",
-    "@angular/core": "^11.2.14",
-    "@angular/forms": "^11.2.14",
+    "@angular/common": "^12.2.16",
+    "@angular/compiler": "^12.2.16",
+    "@angular/core": "^12.2.16",
+    "@angular/forms": "^12.2.16",
     "@angular/material": "^9.2.4",
-    "@angular/platform-browser": "^11.2.14",
-    "@angular/platform-browser-dynamic": "^11.2.14",
-    "@angular/router": "^11.2.14",
+    "@angular/platform-browser": "^12.2.16",
+    "@angular/platform-browser-dynamic": "^12.2.16",
+    "@angular/router": "^12.2.16",
     "@briebug/jest-schematic": "^3.1.0",
     "angular-in-memory-web-api": "^0.10.0",
     "core-js": "^3.19.0",
@@ -44,14 +44,14 @@
     "path": "^0.12.7",
     "rxjs": "^6.6.7",
     "webpack-bundle-analyzer": "^3.9.0",
-    "zone.js": "^0.10.3"
+    "zone.js": "~0.11.4"
   },
   "devDependencies": {
     "@angular-builders/jest": "latest",
-    "@angular-devkit/build-angular": "^0.1102.18",
-    "@angular/cli": "^11.2.18",
-    "@angular/compiler-cli": "^11.2.14",
-    "@angular/language-service": "^11.2.14",
+    "@angular-devkit/build-angular": "^12.2.16",
+    "@angular/cli": "^12.2.16",
+    "@angular/compiler-cli": "^12.2.16",
+    "@angular/language-service": "^12.2.16",
     "@pact-foundation/pact": "^9.16.5",
     "@types/jasmine": "~3.6.0",
     "@types/jasminewd2": "^2.0.10",
@@ -78,6 +78,6 @@
     "stylelint-config-standard": "^24.0.0",
     "ts-node": "~8.6.2",
     "tslint": "^6.1.3",
-    "typescript": "^4.1.6"
+    "typescript": "^4.3.5"
   }
 }
