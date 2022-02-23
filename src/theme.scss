@@ -16,7 +16,6 @@ $theme: mat.define-light-theme(
 
 @include mat.all-component-themes($theme);
 
-// custom
 body {
   font-family: Roboto, Arial, Helvetica, sans-serif;
 }
