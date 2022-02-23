@@ -7,7 +7,7 @@
 .auth0 {
   position: absolute;
   right: 20px;
-  top: 0px;
+  top: 0;
 }
 
 form {
@@ -25,26 +25,26 @@ form {
   }
 
   .actions {
-    a {
-      text-decoration: none;
-      color: white;
-
-      &.github button {
-        background-color: rgb(0, 97, 235);
-      }
-
-      &.google button {
-        background-color: rgb(216, 72, 48);
-      }
-    }
-
     button {
       display: block;
       margin: 15px 0;
       width: 100%;
 
       &.google-id {
-        background-color: rgba(216, 72, 48, 0.2);
+        background-color: rgb(216 72 48 / 20%);
+      }
+    }
+
+    a {
+      text-decoration: none;
+      color: white;
+
+      &.github button {
+        background-color: rgb(0 97 235);
+      }
+
+      &.google button {
+        background-color: rgb(216 72 48);
       }
     }
 
@@ -61,16 +61,14 @@ form {
         content: "";
         position: absolute;
         width: 100%;
-        left: 0px;
+        left: 0;
         top: calc(50% - 1px);
         z-index: -1;
         border-width: 1px;
         border-style: solid;
-        border-color: rgb(229, 232, 237);
+        border-color: rgb(229 232 237);
         border-image: initial;
       }
     }
   }
-
-
 }

@@ -9,13 +9,14 @@ table {
 
 .summary-table {
   flex: 1 0;
+
   & table {
     width: 100%;
     padding: 0 20px;
   }
 }
 
-@media screen and (min-width : 768px) {
+@media screen and (min-width: 768px) {
   .summary-table table {
     padding: 0 15%;
   }
