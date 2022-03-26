@@ -22,7 +22,7 @@ jobs:
           cache: 'npm'
 
       - name: npm install the server
-        working-directory: ../node
+        working-directory: ./node
         run: npm ci
 
       - name: Cypress run
