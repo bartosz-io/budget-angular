@@ -16,10 +16,10 @@ jobs:
         git config --global core.autocrlf false
         git config --global core.eol lf
     - uses: actions/checkout@v2
-    - name: Use Node.js 16
+    - name: Use Node.js 14
       uses: actions/setup-node@v2
       with:
-        node-version: 16.13.0
+        node-version: 14
         cache: 'npm'
     - run: npm ci
     - run: npm run build
@@ -36,10 +36,10 @@ jobs:
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Use Node.js 16
+    - name: Use Node.js 14
       uses: actions/setup-node@v2
       with:
-        node-version: 16.13.0
+        node-version: 14
         cache: 'npm'
     - run: npm ci
     - run: npm run test:integration
