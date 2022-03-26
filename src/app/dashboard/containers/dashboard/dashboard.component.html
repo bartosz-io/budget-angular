@@ -1,7 +1,5 @@
 <main>
-  <summary
-    [budgetSummary]="budgetSummary$ | async">
-  </summary>
+  <summary [budgetSummary]="budgetSummary$ | async"></summary>
 
   <div class="grid">
     <mat-card class="budgets-card">
@@ -9,16 +7,21 @@
         <mat-card-title>Budgets by category</mat-card-title>
       </mat-card-header>
 
-      <mat-progress-spinner *ngIf="!budgetsLoaded" mode="indeterminate"></mat-progress-spinner>
+      <mat-progress-spinner
+        *ngIf="!budgetsLoaded"
+        mode="indeterminate"
+      ></mat-progress-spinner>
 
       <ng-container *ngIf="budgets?.length > 0; else no_budgets">
-        <budget-progress *ngFor="let budget of budgets" [budget]="budget"></budget-progress>
+        <budget-progress
+          *ngFor="let budget of budgets"
+          [budget]="budget"
+        ></budget-progress>
       </ng-container>
 
       <ng-template #no_budgets>
         <div class="no-budgets">No budgets defined</div>
       </ng-template>
-
     </mat-card>
   </div>
 </main>

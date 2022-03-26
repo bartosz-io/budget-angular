@@ -1,4 +1,4 @@
-@import './../../../../theme.scss';
+@import "./../../../../theme.scss";
 
 main {
   position: relative;
@@ -12,7 +12,7 @@ main {
 
 .search {
   flex: 0;
-  padding: 5px 20px 0 20px;
+  padding: 5px 20px 0;
   background-color: $secondary-background-color;
 }
 
@@ -27,7 +27,7 @@ mat-form-field {
   bottom: 0;
   right: 0;
   margin: 10px;
-  background: rgba(0, 0, 0, 0.15);
+  background: rgb(0 0 0 / 15%);
   z-index: 1;
   display: flex;
   align-items: center;

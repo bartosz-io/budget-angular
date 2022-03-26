@@ -1,11 +1,30 @@
 <h1 mat-dialog-title>Two-factor authentication</h1>
 <div mat-dialog-content>
-  <p>Enter 6-digit verification code generated in <b>Google Authenticator</b> mobile application.</p>
+  <p>
+    Enter 6-digit verification code generated in
+    <b>Google Authenticator</b> mobile application.
+  </p>
   <mat-form-field>
     <mat-label>Code</mat-label>
-    <input matInput [(ngModel)]="otpValue" #otp="ngModel" pattern="[0-9]{6}" required maxlength="6" autocomplete="off">
+    <input
+      matInput
+      [(ngModel)]="otpValue"
+      #otp="ngModel"
+      pattern="[0-9]{6}"
+      required
+      maxlength="6"
+      autocomplete="off"
+    />
   </mat-form-field>
 </div>
 <div mat-dialog-actions>
-  <button type="submit" mat-button color="primary" (click)="verify(otpValue)" [disabled]="otp.invalid">Verify</button>
+  <button
+    type="submit"
+    mat-button
+    color="primary"
+    (click)="verify(otpValue)"
+    [disabled]="otp.invalid"
+  >
+    Verify
+  </button>
 </div>

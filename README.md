@@ -30,7 +30,7 @@ There are two ways you can run the Angular part:
 | Auth | Dashboard | Expenses | Settings | Admin |
 | ------ |  ------ | ------ | ----- | ----- |
 | Login, signup and recover password | Read budgets and account summary | List and manage the expenses belonging to the account | Manage account users and expense categories for account | Manage active sessions of logged users |
-| ![Login](/docs/login.png) | ![Dashboard](/docs/dashboard.png) | ![Expenses](/docs/expenses.png) | ![Settings](/docs/settings.png) | ![Admin](/docs/admin.png) |
+| ![Login](./docs/login.png) | ![Dashboard](./docs/dashboard.png) | ![Expenses](./docs/expenses.png) | ![Settings](./docs/settings.png) | ![Admin](./docs/admin.png) |
 
 ## Roles in the system
 
@@ -47,7 +47,7 @@ There are two ways you can run the Angular part:
 - Each expense **belongs to** one account.
 - Each account **may have** multiple expenses.
 
-![Domain](/docs/domain%20model.png)
+![Domain](./docs/domain%20model.png)
 
 ## Authentication mechanisms
 
@@ -143,7 +143,7 @@ Particular components are visible to the users with specified roles. For example
 <button mat-fab color="primary" (click)="openExpenseDialog()" *forRoles="['owner']">+</button>
 ```
 
-<img src="/docs/reader expenses.png" width="300">
+<img src="./docs/reader expenses.png" width="300">
 
 Directive implementation:
 

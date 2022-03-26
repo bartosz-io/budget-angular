@@ -1,4 +1,4 @@
-@import './../../../theme';
+@import "./../../../theme";
 
 :host {
   display: flex;
@@ -39,7 +39,7 @@
   font-weight: bold;
 }
 
-@media screen and (min-width : 768px) {
+@media screen and (min-width: 768px) {
   :host {
     display: flex;
     flex-direction: row;

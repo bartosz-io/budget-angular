@@ -1,5 +1,5 @@
 <mat-toolbar color="primary">
-  <span>{{userEmail$ | async}}</span>
+  <span>{{ userEmail$ | async }}</span>
   <span class="right btn" (click)="logout()">Logout</span>
 </mat-toolbar>
 
@@ -7,27 +7,40 @@
   <h2>Active sessions</h2>
 
   <mat-table [dataSource]="sessions">
-
-    <mat-header-row *matHeaderRowDef="['email', 'role', 'actions']"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: ['email', 'role', 'actions']"></mat-row>
+    <mat-header-row
+      *matHeaderRowDef="['email', 'role', 'actions']"
+    ></mat-header-row>
+    <mat-row
+      *matRowDef="let row; columns: ['email', 'role', 'actions']"
+    ></mat-row>
 
     <ng-container matColumnDef="email">
-      <mat-header-cell *matHeaderCellDef class="wide">User email</mat-header-cell>
-      <mat-cell *matCellDef="let session" class="wide"> {{session.user.email}} </mat-cell>
+      <mat-header-cell *matHeaderCellDef class="wide"
+        >User email</mat-header-cell
+      >
+      <mat-cell *matCellDef="let session" class="wide">
+        {{ session.user.email }}
+      </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="role">
       <mat-header-cell *matHeaderCellDef>Role</mat-header-cell>
-      <mat-cell *matCellDef="let session"> {{session.user.role}} </mat-cell>
+      <mat-cell *matCellDef="let session"> {{ session.user.role }} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="actions">
-      <mat-header-cell *matHeaderCellDef class="pull-right">Actions</mat-header-cell>
+      <mat-header-cell *matHeaderCellDef class="pull-right"
+        >Actions</mat-header-cell
+      >
       <mat-cell *matCellDef="let session" class="pull-right">
-        <button mat-icon-button color="primary" (click)="confirmDelete(session.sessionId)">Destroy</button>
+        <button
+          mat-icon-button
+          color="primary"
+          (click)="confirmDelete(session.sessionId)"
+        >
+          Destroy
+        </button>
       </mat-cell>
     </ng-container>
-
   </mat-table>
-
 </mat-card>
