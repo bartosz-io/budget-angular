@@ -91,7 +91,7 @@ export class ExpensesComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.keyupSubscription.unsubscribe();
+    this.keyupSubscription?.unsubscribe();
   }
 
   openExpenseDialog() {
