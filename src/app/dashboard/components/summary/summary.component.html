@@ -4,15 +4,21 @@
       <tbody>
         <tr>
           <td>Total budget</td>
-          <td class="value">{{budgetSummary?.totalBudget | currency:'USD'}}</td>
+          <td class="value">
+            {{ budgetSummary?.totalBudget | currency: "USD" }}
+          </td>
         </tr>
         <tr>
           <td>Total expenses</td>
-          <td class="value">{{budgetSummary?.totalExpenses | currency:'USD'}}</td>
+          <td class="value">
+            {{ budgetSummary?.totalExpenses | currency: "USD" }}
+          </td>
         </tr>
         <tr>
           <td>Total left</td>
-          <td class="value">{{budgetSummary?.totalLeft | currency:'USD'}}</td>
+          <td class="value">
+            {{ budgetSummary?.totalLeft | currency: "USD" }}
+          </td>
         </tr>
       </tbody>
     </table>

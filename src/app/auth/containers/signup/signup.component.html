@@ -3,29 +3,63 @@
 </p>
 
 <form [formGroup]="signupForm">
-
   <div class="header">Create your account</div>
 
   <mat-form-field>
-    <input matInput type="email" id="signup_email" placeholder="Email" autocomplete="new-password" formControlName="email" required>
+    <input
+      matInput
+      type="email"
+      id="signup_email"
+      placeholder="Email"
+      autocomplete="new-password"
+      formControlName="email"
+      required
+    />
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput type="password" id="signup_password" placeholder="Password" autocomplete="new-password" formControlName="password" required>
+    <input
+      matInput
+      type="password"
+      id="signup_password"
+      placeholder="Password"
+      autocomplete="new-password"
+      formControlName="password"
+      required
+    />
   </mat-form-field>
 
   <div class="actions">
-    <button mat-flat-button color="accent" type="submit" (click)="signup()" [disabled]="!signupForm.valid">Sign up</button>
+    <button
+      mat-flat-button
+      color="accent"
+      type="submit"
+      (click)="signup()"
+      [disabled]="!signupForm.valid"
+    >
+      Sign up
+    </button>
     <div class="separator">
       <span>OR</span>
     </div>
     <a href="/api/auth/external/github/signup" class="github">
-      <button mat-stroked-button type="button" (click)="githubSignup = 'Please wait... ⌛'">{{githubSignup}}</button>
+      <button
+        mat-stroked-button
+        type="button"
+        (click)="githubSignup = 'Please wait... ⌛'"
+      >
+        {{ githubSignup }}
+      </button>
     </a>
     <a href="/api/auth/external/google/signup" class="google">
-      <button mat-stroked-button type="button" (click)="googleSignup = 'Please wait... ⌛'">{{googleSignup}}</button>
+      <button
+        mat-stroked-button
+        type="button"
+        (click)="googleSignup = 'Please wait... ⌛'"
+      >
+        {{ googleSignup }}
+      </button>
     </a>
     <button mat-stroked-button routerLink="/login">Login</button>
   </div>
-
 </form>

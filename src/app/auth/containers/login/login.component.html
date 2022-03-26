@@ -3,31 +3,76 @@
 </p>
 
 <form [formGroup]="loginForm">
-
   <div class="header">Login to your account</div>
 
   <mat-form-field>
-    <input matInput type="email" id="email" placeholder="Email" autocomplete="off" formControlName="email" required>
+    <input
+      matInput
+      type="email"
+      id="email"
+      placeholder="Email"
+      autocomplete="off"
+      formControlName="email"
+      required
+    />
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput type="password" id="password" placeholder="Password" autocomplete="off" formControlName="password" required>
+    <input
+      matInput
+      type="password"
+      id="password"
+      placeholder="Password"
+      autocomplete="off"
+      formControlName="password"
+      required
+    />
   </mat-form-field>
 
   <div class="actions">
-    <button mat-flat-button color="primary" type="submit" (click)="login()" [disabled]="!loginForm.valid">Login</button>
+    <button
+      mat-flat-button
+      color="primary"
+      type="submit"
+      (click)="login()"
+      [disabled]="!loginForm.valid"
+    >
+      Login
+    </button>
     <div class="separator">
       <span>OR</span>
     </div>
     <a href="/api/auth/external/github/login" class="github">
-      <button mat-stroked-button type="button" (click)="githubLogin = 'Please wait... ⌛'">{{githubLogin}}</button>
+      <button
+        mat-stroked-button
+        type="button"
+        (click)="githubLogin = 'Please wait... ⌛'"
+      >
+        {{ githubLogin }}
+      </button>
     </a>
     <a href="/api/auth/external/google/login" class="google">
-      <button mat-stroked-button type="button" (click)="googleLogin = 'Please wait... ⌛'">{{googleLogin}}</button>
+      <button
+        mat-stroked-button
+        type="button"
+        (click)="googleLogin = 'Please wait... ⌛'"
+      >
+        {{ googleLogin }}
+      </button>
     </a>
-    <button mat-stroked-button type="button" class="google-id" (click)="getIdToken()">Get Identity from Google (Implicit Flow)</button>
-    <button mat-stroked-button type="button" routerLink="/signup">Sign up</button>
-    <button mat-stroked-button type="button" routerLink="/recover">Recover password</button>
+    <button
+      mat-stroked-button
+      type="button"
+      class="google-id"
+      (click)="getIdToken()"
+    >
+      Get Identity from Google (Implicit Flow)
+    </button>
+    <button mat-stroked-button type="button" routerLink="/signup">
+      Sign up
+    </button>
+    <button mat-stroked-button type="button" routerLink="/recover">
+      Recover password
+    </button>
   </div>
-
 </form>

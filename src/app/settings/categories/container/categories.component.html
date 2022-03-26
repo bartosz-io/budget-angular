@@ -3,7 +3,6 @@
 </div>
 
 <mat-card class="form" *forRoles="['OWNER']">
-
   <mat-card-header>
     <mat-card-title>Add new category</mat-card-title>
   </mat-card-header>
@@ -11,13 +10,14 @@
   <mat-card-content>
     <category-form
       [category]="newCategory"
-      (categoryAdded)="addCategory($event)">
+      (categoryAdded)="addCategory($event)"
+    >
     </category-form>
   </mat-card-content>
-
 </mat-card>
 
 <category-list
   [categories$]="expenseCategories$"
-  (categoryUpdated)="updateCategory($event)">
+  (categoryUpdated)="updateCategory($event)"
+>
 </category-list>
