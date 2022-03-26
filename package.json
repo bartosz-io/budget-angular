@@ -7,7 +7,7 @@
     "ng": "ng",
     "start": "node server.js",
     "heroku-postbuild": "npm run build:in-memory",
-    "start:node": "npm run start:ci --prefix ./node",
+    "start:node": "npm run start:ci --prefix ../node",
     "build": "ng build --configuration production",
     "build:in-memory": "ng build -c production,in-memory",
     "test": "ng test",
