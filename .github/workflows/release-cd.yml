@@ -9,6 +9,7 @@ on:
 
 jobs:
   build:
+    name: Build, unit tests with code coverage, eslint, stylelint
     runs-on: windows-latest
     steps:
     - name: Set git to use LF
@@ -25,6 +26,7 @@ jobs:
     - run: npm run build
     - run: npm test -- --collect-coverage
     - run: npm run eslint
+    - run: npm run stylelint
     - name: Archive code coverage results
       uses: actions/upload-artifact@v1
       with:
@@ -32,6 +34,7 @@ jobs:
         path: coverage
 
   integrationTests:
+    name: Integration and contract tests
     needs: build
     runs-on: windows-latest
     steps:
@@ -46,6 +49,7 @@ jobs:
     - run: npm run test:pact
 
   sonarcloud:
+    name: SonarCloud quality gates checks
     needs: build
     runs-on: ubuntu-latest
     steps:

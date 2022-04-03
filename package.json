@@ -5,7 +5,7 @@
   "scripts": {
     "config-hooks": "git config core.hooksPath ./git-hooks",
     "ng": "ng",
-    "start": "node server.js",
+    "start": "npm run build && node server.js",
     "heroku-postbuild": "npm run build:in-memory",
     "start:node": "npm run start:ci --prefix ./node",
     "build": "ng build --configuration production",
