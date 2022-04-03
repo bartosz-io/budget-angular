@@ -1,1 +1,1 @@
-web: npm run build:in-memory
+web: node server.js
