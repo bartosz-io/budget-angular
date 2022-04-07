@@ -11,6 +11,9 @@
     "es6": true,
     "jest": true
   },
+  "globals": {
+    "cy": true
+  },
   "overrides": [
     {
       "files": [

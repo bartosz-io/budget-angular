@@ -18,7 +18,7 @@
     "test:pact": "ng test --testMatch **/contract/*.(pact).ts",
     "cypress:open": "cypress open",
     "eslint": "eslint src/**/*.{js,ts}",
-    "eslint:fix": "eslint --fix src/**/*.{js,ts}",
+    "eslint:fix": "eslint --fix {src,contract,cypress,e2e,integration}/**/*.{js,ts}",
     "stylelint": "stylelint src/**/*.scss --custom-syntax postcss-scss",
     "stylelint:fix": "stylelint src/**/*.scss --custom-syntax postcss-scss --fix",
     "lint-staged": "lint-staged"
