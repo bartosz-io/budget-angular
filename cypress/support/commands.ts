@@ -24,27 +24,26 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
-Cypress.Commands.add('login', () => {
-  cy.visit('/login');
-  cy.get('#email').type('bartosz@app.com');
-  cy.get('#password').type('123{enter}');
-  cy.contains('Logout');
+Cypress.Commands.add("login", () => {
+  cy.visit("/login");
+  cy.get("#email").type("bartosz@app.com");
+  cy.get("#password").type("123{enter}");
+  cy.contains("Logout");
 });
 
-Cypress.Commands.add('loginWithRequest', () => {
+Cypress.Commands.add("loginWithRequest", () => {
   cy.request({
-    method: 'POST',
-    url: Cypress.env('apiUrl') + '/auth/login',
+    method: "POST",
+    url: Cypress.env("apiUrl") + "/auth/login",
     body: {
-      email: 'bartosz@app.com',
-      password: '123'
-    }
-  })
-  .then(response => {
-    window.localStorage.setItem('JWT_TOKEN', response.body.jwt);
+      email: "bartosz@app.com",
+      password: "123",
+    },
+  }).then((response) => {
+    window.localStorage.setItem("JWT_TOKEN", response.body.jwt);
   });
 
-  cy.visit('/');
+  cy.visit("/");
 });
 
 declare namespace Cypress {
