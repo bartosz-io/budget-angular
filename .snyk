@@ -3,8 +3,42 @@ version: v1.25.0
 # ignores vulnerabilities until expiry date; change duration by modifying expiry date
 ignore:
   SNYK-JS-NWSAPI-2841516:
-    - @briebug/jest-schematic@4.0.0:
-        reason: None Given
+    - jest-preset-angular@11.1.1:
+        reason: Non-production code
         expires: 2022-10-06T17:08:26.813Z
         created: 2022-09-06T17:08:26.817Z
+  SNYK-JS-LODASH-567746:
+    - '@briebug/jest-schematic@4.0.0':
+        reason: Non-production code
+        expires: 2022-10-06T18:33:19.009Z
+        created: 2022-09-06T18:33:19.016Z
+  SNYK-JS-AJV-584908:
+    - '@briebug/jest-schematic@4.0.0':
+        reason: Non-production code
+        expires: 2022-10-06T18:37:05.453Z
+        created: 2022-09-06T18:37:05.459Z
+  SNYK-JS-ANSIREGEX-1583908:
+    - '@briebug/jest-schematic@4.0.0':
+        reason: Non-production code
+        expires: 2022-10-06T18:38:19.111Z
+        created: 2022-09-06T18:38:19.119Z
+  SNYK-JS-LODASH-1018905:
+    - '@briebug/jest-schematic@4.0.0':
+        reason: Non-production code
+        expires: 2022-10-06T18:38:34.883Z
+        created: 2022-09-06T18:38:34.891Z
+  SNYK-JS-LODASH-1040724:
+    - '@briebug/jest-schematic@4.0.0':
+        reason: Non-production code
+        expires: 2022-10-06T18:38:52.830Z
+        created: 2022-09-06T18:38:52.839Z
+  SNYK-JS-MINIMIST-2429795:
+    - '@angular/compiler-cli':
+        reason: Non-production code
+        expires: 2022-10-06T18:39:54.341Z
+        created: 2022-09-06T18:39:54.350Z
+    - jest-preset-angular@11.1.1:
+        reason: Non-production code
+        expires: 2022-10-06T18:39:54.341Z
+        created: 2022-09-06T18:39:54.350Z
 patch: {}
