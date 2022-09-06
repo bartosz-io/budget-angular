@@ -46,7 +46,7 @@
     "ng-qrcode": "^6.0.0",
     "path": "^0.12.7",
     "rxjs": "^6.6.7",
-    "webpack-bundle-analyzer": "^3.9.0",
+    "webpack-bundle-analyzer": "^4.0.0",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
