@@ -1,0 +1,10 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.25.0
+# ignores vulnerabilities until expiry date; change duration by modifying expiry date
+ignore:
+  SNYK-JS-NWSAPI-2841516:
+    - @briebug/jest-schematic@4.0.0:
+        reason: None Given
+        expires: 2022-10-06T17:08:26.813Z
+        created: 2022-09-06T17:08:26.817Z
+patch: {}
