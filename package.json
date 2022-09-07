@@ -40,7 +40,7 @@
     "@angular/router": "^13.2.3",
     "@briebug/jest-schematic": "^4.0.0",
     "angular-in-memory-web-api": "^0.13.0",
-    "core-js": "^3.19.0",
+    "core-js": "^3.24.1",
     "express": "^4.17.3",
     "jest-preset-angular": "^11.1.1",
     "ng-qrcode": "^6.0.0",
