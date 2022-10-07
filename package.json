@@ -21,7 +21,9 @@
     "eslint:fix": "eslint --fix {src,contract,cypress,e2e,integration}/**/*.{js,ts}",
     "stylelint": "stylelint src/**/*.scss --custom-syntax postcss-scss",
     "stylelint:fix": "stylelint src/**/*.scss --custom-syntax postcss-scss --fix",
-    "lint-staged": "lint-staged"
+    "lint-staged": "lint-staged",
+    "prepare": "npm run snyk-protect",
+    "snyk-protect": "snyk-protect"
   },
   "private": true,
   "dependencies": {
@@ -47,7 +49,8 @@
     "path": "^0.12.7",
     "rxjs": "^6.6.7",
     "webpack-bundle-analyzer": "^4.0.0",
-    "zone.js": "~0.11.4"
+    "zone.js": "~0.11.4",
+    "@snyk/protect": "latest"
   },
   "devDependencies": {
     "@angular-builders/jest": "latest",
@@ -100,5 +103,6 @@
       "stylelint --fix --custom-syntax postcss-scss",
       "git add"
     ]
-  }
+  },
+  "snyk": true
 }
