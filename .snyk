@@ -41,4 +41,10 @@ ignore:
         reason: Non-production code
         expires: 2022-10-06T18:39:54.341Z
         created: 2022-09-06T18:39:54.350Z
-patch: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  SNYK-JS-LODASH-567746:
+    - '@briebug/jest-schematic > @schuchard/schematics-core > lodash':
+        patched: '2022-10-07T21:14:34.354Z'
+    - '@briebug/jest-schematic > @schuchard/schematics-core > inquirer > lodash':
+        patched: '2022-10-07T21:14:34.354Z'
