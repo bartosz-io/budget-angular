@@ -125,7 +125,6 @@
       }
     }
   },
-  "defaultProject": "budget",
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "",

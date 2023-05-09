@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
-import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from "@angular/forms";
 import { PasswordService } from "../../services/password.service";
 import { Observable } from "rxjs";
 
@@ -12,14 +12,14 @@ import { Observable } from "rxjs";
 export class PasswordComponent implements OnInit {
   public isFinished: boolean;
   public email: string;
-  public passwordForm: FormGroup;
+  public passwordForm: UntypedFormGroup;
   public recovery: boolean;
   public task: string;
   private code: string;
 
   constructor(
     private activeRoute: ActivatedRoute,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private passwordService: PasswordService
   ) {}
 

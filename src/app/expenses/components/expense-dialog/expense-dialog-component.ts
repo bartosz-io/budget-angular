@@ -1,6 +1,6 @@
 import { Component, Inject, ViewEncapsulation, OnInit } from "@angular/core";
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from "@angular/forms";
 import { Observable } from "rxjs";
 
 import { Expense } from "@models/expense";
@@ -21,7 +21,7 @@ export type SubmitExpenseCallback = (expense: Expense) => Observable<void>;
   encapsulation: ViewEncapsulation.None,
 })
 export class ExpenseDialogComponent implements OnInit {
-  expenseForm: FormGroup;
+  expenseForm: UntypedFormGroup;
   expense: Expense;
   newCategory = new ExpenseCategory();
   categories: ExpenseCategory[] = [];
@@ -29,7 +29,7 @@ export class ExpenseDialogComponent implements OnInit {
   inProgress: boolean;
 
   constructor(
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     public dialogRef: MatDialogRef<ExpenseDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: ExpenseDialogData
   ) {}
