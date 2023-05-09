@@ -43,7 +43,7 @@
     "core-js": "^3.19.0",
     "express": "^4.17.3",
     "jest-preset-angular": "^11.1.1",
-    "ng-qrcode": "^15.2.9",
+    "ng-qrcode": "^16.0.0",
     "path": "^0.12.7",
     "rxjs": "^6.6.7",
     "webpack-bundle-analyzer": "^4.0.0",
