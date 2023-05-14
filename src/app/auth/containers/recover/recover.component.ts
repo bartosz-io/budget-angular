@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from "@angular/forms";
 import { PasswordService } from "../../services/password.service";
 
 @Component({
@@ -9,10 +9,10 @@ import { PasswordService } from "../../services/password.service";
 })
 export class RecoverComponent implements OnInit {
   isRequestSent: boolean;
-  public recoveryForm: FormGroup;
+  public recoveryForm: UntypedFormGroup;
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private passwordService: PasswordService
   ) {}
 

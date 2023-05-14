@@ -1,6 +1,6 @@
 import { Component, Inject, ViewEncapsulation, OnInit } from "@angular/core";
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from "@angular/forms";
 import { User } from "@models/user";
 import { Role } from "@models/types";
 
@@ -13,12 +13,12 @@ import { Role } from "@models/types";
 export class UserDialogComponent implements OnInit {
   user: User;
   roles: Role[];
-  userForm: FormGroup;
+  userForm: UntypedFormGroup;
   inProgress: boolean;
   submitText: string;
 
   constructor(
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     public dialogRef: MatDialogRef<UserDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {}

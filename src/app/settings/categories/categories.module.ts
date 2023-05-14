@@ -13,19 +13,18 @@ import { CategoriesState } from "./categories.state";
 import { EditingGuard } from "./guards/editing.guard";
 
 @NgModule({
-  imports: [SharedModule, CategoriesRoutingModule, ReactiveFormsModule],
-  declarations: [
-    CategoriesComponent,
-    CategoryFormComponent,
-    CategoryListComponent,
-    EditingDialogComponent,
-  ],
-  providers: [
-    ExpenseCategoryResolver,
-    CategoriesFacade,
-    CategoriesState,
-    EditingGuard,
-  ],
-  entryComponents: [EditingDialogComponent],
+    imports: [SharedModule, CategoriesRoutingModule, ReactiveFormsModule],
+    declarations: [
+        CategoriesComponent,
+        CategoryFormComponent,
+        CategoryListComponent,
+        EditingDialogComponent,
+    ],
+    providers: [
+        ExpenseCategoryResolver,
+        CategoriesFacade,
+        CategoriesState,
+        EditingGuard,
+    ]
 })
 export class CategoriesModule {}

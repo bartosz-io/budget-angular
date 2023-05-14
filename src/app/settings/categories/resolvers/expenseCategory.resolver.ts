@@ -1,16 +1,12 @@
 import { Injectable } from "@angular/core";
-import {
-  Resolve,
-  RouterStateSnapshot,
-  ActivatedRouteSnapshot,
-} from "@angular/router";
+import { RouterStateSnapshot, ActivatedRouteSnapshot } from "@angular/router";
 import { Observable } from "rxjs";
 
 import { ExpenseCategory } from "@models/expenseCategory";
 import { CategoriesFacade } from "../categories.facade";
 
 @Injectable()
-export class ExpenseCategoryResolver implements Resolve<ExpenseCategory[]> {
+export class ExpenseCategoryResolver  {
   constructor(private settingsFacade: CategoriesFacade) {}
 
   resolve(

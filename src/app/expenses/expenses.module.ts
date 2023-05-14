@@ -11,14 +11,13 @@ import { ConfirmDeleteComponent } from "./components/confirm-delete/confirm-dele
 import { ExpenseDialogComponent } from "./components/expense-dialog/expense-dialog-component";
 
 @NgModule({
-  imports: [SharedModule, ReactiveFormsModule, ExpensesRoutingModule],
-  declarations: [
-    ExpensesComponent,
-    ExpensesTableComponent,
-    ConfirmDeleteComponent,
-    ExpenseDialogComponent,
-  ],
-  entryComponents: [ExpenseDialogComponent, ConfirmDeleteComponent],
-  providers: [ExpensesService, ExpenseApi],
+    imports: [SharedModule, ReactiveFormsModule, ExpensesRoutingModule],
+    declarations: [
+        ExpensesComponent,
+        ExpensesTableComponent,
+        ConfirmDeleteComponent,
+        ExpenseDialogComponent,
+    ],
+    providers: [ExpensesService, ExpenseApi]
 })
 export class ExpensesModule {}

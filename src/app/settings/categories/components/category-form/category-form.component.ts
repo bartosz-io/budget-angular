@@ -7,11 +7,11 @@ import {
   EventEmitter,
 } from "@angular/core";
 import {
-  FormBuilder,
+  UntypedFormBuilder,
   Validators,
-  FormGroup,
-  FormArray,
-  FormControl,
+  UntypedFormGroup,
+  UntypedFormArray,
+  UntypedFormControl,
 } from "@angular/forms";
 
 import { ExpenseCategory } from "@models/expenseCategory";
@@ -27,9 +27,9 @@ export class CategoryFormComponent implements OnInit {
   @Input() category: ExpenseCategory;
   @Output() categoryAdded: EventEmitter<ExpenseCategory> = new EventEmitter();
   @Output() categoryUpdated: EventEmitter<ExpenseCategory> = new EventEmitter();
-  categoryForm: FormGroup;
+  categoryForm: UntypedFormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: UntypedFormBuilder) {}
 
   ngOnInit() {
     const patternsInitial = this.category.counterpartyPatterns.map((pattern) =>
@@ -61,11 +61,11 @@ export class CategoryFormComponent implements OnInit {
     this.categoryForm.markAsPristine();
   }
 
-  get patterns(): FormArray {
-    return this.categoryForm.get("counterpartyPatterns") as FormArray;
+  get patterns(): UntypedFormArray {
+    return this.categoryForm.get("counterpartyPatterns") as UntypedFormArray;
   }
 
   private createPatternInput(value: string) {
-    return new FormControl(value, [Validators.required]);
+    return new UntypedFormControl(value, [Validators.required]);
   }
 }

@@ -1,6 +1,6 @@
 import { Component, ViewEncapsulation, ViewChild, OnInit } from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
-import { FormGroup } from "@angular/forms";
+import { UntypedFormGroup } from "@angular/forms";
 import { Observable } from "rxjs";
 
 import { CategoriesComponent } from "./categories/container/categories.component";
@@ -26,7 +26,7 @@ import { ExpenseCategory } from "@models/expenseCategory";
 export class SettingsComponent implements OnInit {
   @ViewChild(CategoriesComponent)
   categoriesComponent: CategoriesComponent;
-  forms: FormGroup[] = [];
+  forms: UntypedFormGroup[] = [];
   expenseCategories$: Observable<ExpenseCategory[]>;
   menuItems = ["account", "categories"];
 
