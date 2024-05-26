@@ -25,7 +25,7 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/cli": "^13.2.4",
+    "@angular/cli": "^17.0.0",
     "@angular/compiler-cli": "^13.2.3",
     "@angular-devkit/core": "^13.2.4",
     "@angular/animations": "^13.2.3",
